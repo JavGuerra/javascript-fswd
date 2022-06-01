@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="135.47mm" height="135.47mm" version="1.1" viewBox="0 0 135.47 135.47" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(-26.635 -72.102)">
+  <g transform="matrix(1.0195 0 0 .99799 -.51964 .14491)">
+   <g fill="#ffa60d">
+    <path transform="scale(.26458)" d="m351.85 272.51-37.229 95.033a165.25 165.25 0 0 1 38.057-4.4863 165.25 165.25 0 0 1 36.449 4.084zm201.55 96.004-98.705 29.799a165.25 165.25 0 0 1 47.018 58.629zm-402.72 0.041 52.416 89.668a165.25 165.25 0 0 1 47.207-59.592zm36.789 158.87-86.484 58.387 103.88 16.209a165.25 165.25 0 0 1-17.43-73.713 165.25 165.25 0 0 1 0.0332-0.88281zm330.45 1.293a165.25 165.25 0 0 1-17.342 73.166l102.12-15.934zm-269.35 127.86-8.0098 103.34 76.279-70.326a165.25 165.25 0 0 1-68.27-33.016zm207.54 0.58789a165.25 165.25 0 0 1-67.812 32.471l74.98 70.199z"/>
+    <path d="m26.635 124.79 18.321-2.6841 4.3302 7.9209-7.2769 5.2647z"/>
+    <path d="m63.582 78.453 13.533 12.638-3.4855 8.3272-8.6554-2.399z"/>
+    <path d="m122.62 78.453-13.533 12.638 3.4855 8.3272 8.6554-2.399z"/>
+    <path d="m159.51 124.64-18.321-2.6841-4.3302 7.9209 7.277 5.2647z"/>
+    <path d="m39.935 182.41 9.2134-16.062 8.9032 1.4914-0.35877 8.9745z"/>
+    <path d="m146.23 182.33-9.2134-16.062-8.9032 1.4914 0.35877 8.9745z"/>
+    <path d="m93.193 207.84-6.794-17.225 6.7238-6.0234 6.7863 5.8836z"/>
+   </g>
+   <circle cx="93.313" cy="139.78" r="35.167" fill="#ffd501"/>
+  </g>
+  <text x="76.361343" y="167.88982" fill="#ffa60d" font-family="sans-serif" font-size="83.028px" letter-spacing="0px" stroke-width="2.0757" word-spacing="0px" style="line-height:1.2" xml:space="preserve"><tspan x="76.361343" y="167.88982" fill="#ffa60d" font-family="'Abyssinica SIL'" stroke-width="2.0757">?</tspan></text>
+  <text x="74.773842" y="166.30234" fill="#ffffff" font-family="sans-serif" font-size="83.028px" letter-spacing="0px" stroke-width="2.0757" word-spacing="0px" style="line-height:1.2" xml:space="preserve"><tspan x="74.773842" y="166.30234" fill="#ffffff" font-family="'Abyssinica SIL'" stroke-width="2.0757">?</tspan></text>
+ </g>
+</svg>
