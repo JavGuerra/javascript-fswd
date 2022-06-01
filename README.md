@@ -1,9 +1,9 @@
-![icono](assets/img/logo.svg)
+![icono](assets/img/logo.svg =96x96)
 
 # Quiz de Verano
 
 __Práctica final del módulo de JavaScript avanzado__
-Repositorio en GitHub: [ JavGuerra / ramp-up-fswd]()  
+Repositorio en GitHub: [JavGuerra/javascript-fswd]()  
 Por:  __Alejandro Rodríguez__ y __Javier Guerra__ 
 
 ## Acceder a la página web
