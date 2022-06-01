@@ -15,34 +15,50 @@
     <link rel="manifest" href="manifest.json" />
     <link rel="shortcut icon" href="assets/img/favicon.png" />
     <link rel="stylesheet" href="assets/css/estilos.css" />
+    <script defer src="js/funciones.js"></script>
     <script defer src="js/script.js"></script>
 </head>
 
 <body>
     <header>
-        
         <h1><img src="assets/img/logo.svg" alt="Logo" /> Quiz&nbsp;de&nbsp;verano</h1>
     </header>
 
     <main>
-        <section id="bienvenida">
+        <section id="bienven">
             <h2>Bienvenida</h2>
             <!-- Bienvenida -->
         </section>
 
-        <section id="cuestionario">
+        <section id="cuestio">
             <h2>Cuestionario</h2>
             <!-- Cuestionario -->
         </section>
 
-        <section id="resultado">
+        <section id="resulta">
             <h2>Resultado</h2>
             <!-- Resultado -->
         </section>
+
+        <dialog id="error" role="alertdialog" aria-labelledby="cabecera" aria-describedby="msgErr">
+            <div role="document" tabindex="0">
+                <h2 id="cabecera">Atención</h2>
+                <p id="msgErr"></p>
+                <button id="aceptar">Aceptar</button>
+            </div>
+        </dialog>
+
+        <dialog id='zona'>
+            <div class="spinner" aria-label="Cargando..."></div>
+        </dialog>
     </main>
 
     <footer>
-        <small>Pie de página</small>
+        <small>
+            <a target="_blank" href="https://github.com/JavGuerra/javascript-fswd">
+                Ver el repositorio
+            </a>
+        </small>
     </footer>
 </body>
 
