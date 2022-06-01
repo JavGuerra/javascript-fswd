@@ -1,4 +1,4 @@
-![icono](assets/img/logo.svg){:height="64px" width="64px"}
+![icono](assets/img/logo.svg | width=100)
 
 # Quiz de Verano
 
