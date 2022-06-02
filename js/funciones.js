@@ -27,8 +27,8 @@ function nuevo(elemento, padre, contenido = null) {
  * @param {string} contenido a añadir, ya sea texto o HTML
  * @param {boolean} borra o no el contenido previo (opcional)
  */
- function html(elemento, contenido, borra = false) {
-   borra ? elemento.innerHTML = contenido : elemento.innerHTML += contenido;
+function html(elemento, contenido, borra = false) {
+    borra ? elemento.innerHTML = contenido : elemento.innerHTML += contenido;
 }
 
 /**
