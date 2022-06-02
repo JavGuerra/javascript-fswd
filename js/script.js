@@ -15,20 +15,19 @@ const btnFinal  = elemento('#final'  );
 const btnInicio = elemento('#inicio' );
 const btnAcepta = elemento('#aceptar');
 
+btnAcepta.onclick = cierraDialogo;
 btnJugar.onclick  = jugar;
 btnFinal.onclick  = final;
 btnInicio.onclick = inicio;
-btnAcepta.onclick = cierraDialogo;
 
 
-
+// Pruebas:
 // abreVentanaModal('Mensaje de ejemplo.');
 
 // ponSpin(true);
 // setTimeout(() => ponSpin(false), 5000);
 
 // consultaAPI('html://dsdsfsfs.ssd', () => {console.log('hecho')});
-
 
 
 function jugar() {
