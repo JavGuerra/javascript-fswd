@@ -22,7 +22,7 @@ btnInicio.onclick = inicio;
 
 
 // Pruebas:
-// abreVentanaModal('Mensaje de ejemplo.');
+// abreDialogo('Mensaje de ejemplo.');
 
 // ponSpin(true);
 // setTimeout(() => ponSpin(false), 5000);

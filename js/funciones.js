@@ -18,7 +18,7 @@ function nuevo(elemento, padre, contenido = null) {
     el = document.querySelector(padre);
     nuevo = document.createElement(elemento);
     if (contenido) nuevo.innerHTML = contenido;
-    return el.append(nuevo);
+    return el.appendChild(nuevo);
 }
 
 /**
@@ -82,7 +82,6 @@ function abreDialogo(mensaje) {
 function cierraDialogo() {
     elDialogo.close()
 };
-
 
 /**
  * Activa o desactiva el spin por cada proceso asíncrono
