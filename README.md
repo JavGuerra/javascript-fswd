@@ -15,5 +15,4 @@ Por:  __Alejandro Rodríguez__ y __Javier Guerra__
 Sobre el código fuente: [GNU GENERAL PUBLIC LICENSE Version 3](LICENSE)  
 Sobre el contenido propio de la web: [(CC) BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/es/)
 
-Usa información de la API de preguntas: [Open Trivia DB](https://opentdb.com/). 
-
+Usa información de la API de preguntas: [Open Trivia DB](https://opentdb.com/)
