@@ -4,6 +4,7 @@
 
 __Práctica final del módulo de JavaScript avanzado__  
 Repositorio en GitHub: [JavGuerra/javascript-fswd](https://javguerra.github.io/javascript-fswd/)  
+
 Por:  __Alejandro Rodríguez__ y __Javier Guerra__ 
 
 ## Acceder a la página web
