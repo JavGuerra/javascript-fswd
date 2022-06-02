@@ -1,18 +1,66 @@
 /* "Mobile first" */
+
+@font-face {
+  font-family: "MelodySummer";
+  src: url("../font/Melody\ Summer.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SummerSplash";
+  src: url("../font/Summer\ Splash.otf") format("opentype");
+}
+
 body {
   margin: 0.5em auto;
   width: 95%;
   text-align: center;
-  background-color: antiquewhite;
-  font-family: Arial, Helvetica, sans-serif;
+  background: antiquewhite url(../img/sea.png) center/cover no-repeat fixed;
+  color: DimGray;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
 a {
   text-decoration: none;
+  color: DodgerBlue;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+h1 {
+  font-family: "SummerSplash", Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  color: Gold;
+  text-shadow: 4px 4px 0px DarkOrange;
+}
+
+h2 {
+  font-family: "MelodySummer", Helvetica, Arial, sans-serif;
+  font-size: 3em;
+  margin: 0.1em 0;
+  color: MediumSeaGreen;
+}
+
+button {
+  font-family: "SummerSplash", Helvetica, Arial, sans-serif;
+  padding: 0.6em 1em 0.5em;
+  margin: 1em 0.5em;
+  width: 125px;
+  font-size: 1em;
+  font-variant: small-caps;
+  letter-spacing: 1pt;
+  border: none;
+  background-color: MediumSeaGreen;
+  color: white;
+  cursor: pointer;
+  border-right: 1px solid Green;
+  border-bottom: 4px solid Green;
+}
+
+button:hover,
+main {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.15);
 }
 
 header img {
@@ -20,10 +68,18 @@ header img {
   max-width: 64px;
   height: auto;
   vertical-align: middle;
+  padding-bottom: 0.25em;
 }
 
-#cuestio, #resulta {
-    display: none;
+main {
+  padding: 1em;
+  background-color: rgba(255, 255, 255, .75);
+  border-radius: 0.5em;
+}
+
+#cuestio,
+#resulta {
+  display: none;
 }
 
 #error {
@@ -87,10 +143,28 @@ header img {
   }
 }
 
+footer {
+  margin: 2em 0;
+}
+
 /* Estilos alternativos */
 @media (min-width: 768px) {
   body {
     margin: 2em auto;
     max-width: 50em;
+    font-size: 1.2em;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+  
+  h2 {
+    font-size: 4em;
+  }
+
+  button {
+    width: 200px;
+    font-size: 1.2em;
   }
 }

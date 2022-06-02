@@ -21,19 +21,19 @@
 
 <body>
     <header>
-        <h1><img src="assets/img/logo.svg" alt="Logo" /> Quiz&nbsp;de&nbsp;verano</h1>
+        <h1><img src="assets/img/logo.svg" alt="Logo Sol" /> Quiz&nbsp;de&nbsp;Verano</h1>
     </header>
 
-    <main>
+    <main role="region" aria-live="polite">
         <section id="bienven">
-            <h2>Bienvenida</h2>
+            <h2>Bienvenido</h2>
             <p>Va a realizar un test de 10 preguntas.</p>
             <button id="jugar">Jugar</button>
         </section>
 
         <section id="cuestio">
             <h2>Cuestionario</h2>
-            <!-- Cuestionario -->
+            <p>1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10</p>
             <button id="final">Resultados</button>
         </section>
 
@@ -42,19 +42,19 @@
             <p>Aciertos: <span id="puntos">0</span> de 10</p>
             <button id="inicio">Comenzar</button>
         </section>
-
-        <dialog id="error" role="alertdialog" aria-labelledby="cabecera" aria-describedby="msgErr">
-            <div role="document" tabindex="0">
-                <h2 id="cabecera">Atención</h2>
-                <p id="msgErr"></p>
-                <button id="aceptar">Aceptar</button>
-            </div>
-        </dialog>
-
-        <dialog id='zona'>
-            <div class="spinner" aria-label="Cargando..."></div>
-        </dialog>
     </main>
+
+    <dialog id="error" role="alertdialog" aria-labelledby="cabecera" aria-describedby="msgErr">
+        <div role="document" tabindex="0">
+            <h2 id="cabecera">Atención</h2>
+            <p id="msgErr"></p>
+            <button id="aceptar">Aceptar</button>
+        </div>
+    </dialog>
+
+    <dialog id='zona'>
+        <div class="spinner" aria-label="Cargando..."></div>
+    </dialog>
 
     <footer>
         <small>
