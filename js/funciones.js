@@ -44,7 +44,7 @@ function consultaAPI(ruta, callback) {
             return respuesta.json();
         })
         .then(data => callback(data))
-        .catch(err => abreVentanaModal(err))
+        .catch(err => abreDialogo(err))
         .finally(ponSpin(false));
 }
 
@@ -71,15 +71,15 @@ function btnInactivo(boton, estado) {
  * Abre la ventana modal con un mensaje
  * @param {string} mensaje a mostrar
  */
-function abreVentanaModal(mensaje) {
-    elMsgErr.textContent = mensaje;
+function abreDialogo(mensaje) {
+    html(elMsgErr, mensaje, true);
     elDialogo.showModal();
 }
 
 /**
  * Cierra la ventana de mensaje modal
  */
-function cierraVentanaModal() {
+function cierraDialogo() {
     elDialogo.close()
 };
 

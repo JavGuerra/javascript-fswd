@@ -1,5 +1,5 @@
 let intervalo = spin = 0;
-let aciertos = 9;
+let aciertos = 0;
 
 const elDialogo = elemento('#error'  );
 const elMsgErr  = elemento('#msgErr' );
@@ -18,7 +18,7 @@ const btnAcepta = elemento('#aceptar');
 btnJugar.onclick  = jugar;
 btnFinal.onclick  = final;
 btnInicio.onclick = inicio;
-btnAcepta.onclick = cierraVentanaModal;
+btnAcepta.onclick = cierraDialogo;
 
 
 
@@ -26,6 +26,8 @@ btnAcepta.onclick = cierraVentanaModal;
 
 // ponSpin(true);
 // setTimeout(() => ponSpin(false), 5000);
+
+// consultaAPI('html://dsdsfsfs.ssd', () => {console.log('hecho')});
 
 
 
