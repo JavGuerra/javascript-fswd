@@ -3,7 +3,7 @@
  * @param {string} el elemento a obtener 
  * @returns el elemento solicitado
  */
-function elemento(el) {
+function el(el) {
     return document.querySelector(el);
 }
 
@@ -15,10 +15,9 @@ function elemento(el) {
  * @returns el elemento añadido
  */
 function nuevo(elemento, padre, contenido = null) {
-    el = document.querySelector(padre);
     nuevo = document.createElement(elemento);
     if (contenido) nuevo.innerHTML = contenido;
-    return el.appendChild(nuevo);
+    return el(padre).appendChild(nuevo);
 }
 
 /**

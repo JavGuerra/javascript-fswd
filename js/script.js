@@ -1,19 +1,17 @@
 let intervalo = spin = 0;
 let aciertos = 0;
 
-const elDialogo = elemento('#error'  );
-const elMsgErr  = elemento('#msgErr' );
-const elZona    = elemento('#zona'   );
-
-const elBienven = elemento('#bienven');
-const elCuestio = elemento('#cuestio');
-const elResulta = elemento('#resulta');
-const elPuntua  = elemento('#puntos' );
-
-const btnJugar  = elemento('#jugar'  );
-const btnFinal  = elemento('#final'  );
-const btnInicio = elemento('#inicio' );
-const btnAcepta = elemento('#aceptar');
+const elDialogo = el('#error'  );
+const elMsgErr  = el('#msgErr' );
+const btnAcepta = el('#aceptar');
+const elZona    = el('#zona'   );
+const elBienven = el('#bienven');
+const elCuestio = el('#cuestio');
+const elResulta = el('#resulta');
+const elPuntua  = el('#puntos' );
+const btnJugar  = el('#jugar'  );
+const btnFinal  = el('#final'  );
+const btnInicio = el('#inicio' );
 
 btnAcepta.onclick = cierraDialogo;
 btnJugar.onclick  = jugar;
