@@ -2,7 +2,7 @@
 
 # Quiz de Verano
 
-__Práctica final del módulo de JavaScript avanzado__
+__Práctica final del módulo de JavaScript avanzado__  
 Repositorio en GitHub: [JavGuerra/javascript-fswd](https://javguerra.github.io/javascript-fswd/)  
 Por:  __Alejandro Rodríguez__ y __Javier Guerra__ 
 
