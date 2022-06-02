@@ -28,8 +28,7 @@ function nuevo(elemento, padre, contenido = null) {
  * @param {boolean} borra o no el contenido previo (opcional)
  */
  function html(elemento, contenido, borra = true) {
-    el = document.querySelector(elemento);
-    borra ? el.innerHTML = contenido : el.innerHTML += contenido;
+   borra ? elemento.innerHTML = contenido : elemento.innerHTML += contenido;
 }
 
 /**

@@ -35,12 +35,12 @@ function jugar() {
 }
 
 function final() {
+    html(elPuntua, aciertos);
     muestra(elCuestio, false);
     muestra(elResulta, true);
 }
 
 function inicio() {
-    html(elPuntua, aciertos, true);
     muestra(elResulta, false);
     muestra(elBienven, true);
 }
