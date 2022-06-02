@@ -14,7 +14,7 @@ body {
   margin: 0.5em auto;
   width: 95%;
   text-align: center;
-  background: antiquewhite url(../img/beach.png) center/cover no-repeat fixed;
+  background: #daeaf3 url(../img/beach.png) center/cover no-repeat fixed;
   color: DimGray;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
