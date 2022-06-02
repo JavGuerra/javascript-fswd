@@ -35,7 +35,7 @@ function jugar() {
 }
 
 function final() {
-    html(elPuntua, aciertos);
+    html(elPuntua, aciertos, true);
     muestra(elCuestio, false);
     muestra(elResulta, true);
 }

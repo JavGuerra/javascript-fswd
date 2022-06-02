@@ -24,10 +24,10 @@ function nuevo(elemento, padre, contenido = null) {
 /**
  * Añade contenido dentro de un elemento
  * @param {string} elemento donde añadir contenido
- * @param {string} contenido a añadir
+ * @param {string} contenido a añadir, ya sea texto o HTML
  * @param {boolean} borra o no el contenido previo (opcional)
  */
- function html(elemento, contenido, borra = true) {
+ function html(elemento, contenido, borra = false) {
    borra ? elemento.innerHTML = contenido : elemento.innerHTML += contenido;
 }
 
@@ -44,10 +44,7 @@ function consultaAPI(ruta, callback) {
             return respuesta.json();
         })
         .then(data => callback(data))
-        .catch(err => {
-            console.error(err);
-            abreVentanaModal(err);
-        })
+        .catch(err => abreVentanaModal(err))
         .finally(ponSpin(false));
 }
 
