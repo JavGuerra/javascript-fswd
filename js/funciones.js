@@ -105,3 +105,12 @@ function compruebaSpin() {
         elZona.close(); 
     }
 }
+
+function existeClave(clave) {
+    return localStorage.getItem(clave) !== undefined && localStorage.getItem(clave);
+}
+
+/* Devuelve dos dígitos */
+function digitos(numero) {
+    return numero < 10 ? '0' + numero : numero ;
+}
