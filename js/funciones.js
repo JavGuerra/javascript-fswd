@@ -32,7 +32,7 @@ function nuevo(elemento, padre, contenido = null) {
 }
 
 /**
- * Consulta la API en la ruta dada y ejecuta la función callback()
+ * Consulta la API en la ruta dada y ejecuta la función callback
  * @param {string} ruta a la API
  * @param {function} callback consulta a ejecutar
  */
