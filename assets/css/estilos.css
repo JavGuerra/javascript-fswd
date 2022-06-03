@@ -64,6 +64,16 @@ main {
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.15);
 }
 
+button:disabled {
+  background-color: DarkGray;
+  border-right: 1px solid Gray;
+  border-bottom: 4px solid Gray;
+}
+
+button:disabled:hover {
+  box-shadow: none;
+}
+
 header img {
   width: 100%;
   max-width: 64px;

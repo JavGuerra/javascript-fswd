@@ -6,7 +6,9 @@ const elDialogo = el('#error'  );
 const elMsgErr  = el('#msgErr' );
 const btnAcepta = el('#aceptar');
 const elZona    = el('#zona'   );
+
 const elBienven = el('#bienven');
+const elTabla   = el('#tabla'  );
 const elCuestio = el('#cuestio');
 const elResulta = el('#resulta');
 const elPuntua  = el('#puntos' );
@@ -15,6 +17,7 @@ const btnFinal  = el('#final'  );
 const btnInicio = el('#inicio' );
 
 btnAcepta.onclick = cierraDialogo;
+
 btnJuego.onclick  = juego;
 btnFinal.onclick  = final;
 btnInicio.onclick = inicio;
@@ -22,7 +25,7 @@ btnInicio.onclick = inicio;
 if(localStorage.puntuaciones) muestraPuntuaciones();
 
 /**
- * Lleva a cabo las acciones relacionadas con el cuestionario
+ * Inicia las acciones relacionadas con el cuestionario
  */
 function juego() {
     muestra(elBienven, false);
@@ -31,7 +34,7 @@ function juego() {
 }
 
 /**
- * Lleva a cabo las acciones relacionadas con el final del juego
+ * Inicia las acciones relacionadas con el final del juego
  */
 function final() {
     ponHTML(elPuntua, aciertos, true);
@@ -41,9 +44,10 @@ function final() {
 }
 
 /**
- * Lleva a cabo las acciones relacionadas con el inicio del juego tras una partida
+ * Inicia las acciones relacionadas con el inicio del juego tras una partida
  */
 function inicio() {
+    ponHTML(elTabla, '', true);
     muestra(elResulta, false);
     muestra(elBienven, true);
     if(localStorage.puntuaciones) muestraPuntuaciones();
@@ -60,7 +64,11 @@ function muestraPuntuaciones() {
 
     // Tabla para mostrar datos //
     for (let i = 0; i < puntuaciones.length; i++) {
+
+        // Sustituir la línea siguiente por la tabla //
         console.log(puntuaciones[i].aciertos, puntuaciones[i].fechaHora);
+
+        // La tabla debe ponerse dentro del elemento 'elTabla' (ver línea 11).
     }
 
     ponSpin(false);
@@ -74,17 +82,12 @@ function guardaPuntuacion() {
     ponSpin(true);
     ponBtnInactivo(btnInicio, true);
 
-    let hoy = new Date();
-    let fecha = `${dosDigitos(hoy.getDate())}-${dosDigitos(hoy.getMonth() + 1)}-${hoy.getFullYear()}`;
-    let hora = `${dosDigitos(hoy.getHours())}:${dosDigitos(hoy.getMinutes())}:${dosDigitos(hoy.getSeconds())}`;
-    let fechaHora = fecha + ' ' + hora;
-
+    let fechaHora  = fechaHoraActual();
     let puntuacion = {'aciertos': aciertos, 'fechaHora': fechaHora};
 
     if(localStorage.puntuaciones) {
         puntuaciones = JSON.parse(localStorage.puntuaciones);
     }
-
     puntuaciones.push(puntuacion);
     localStorage.setItem('puntuaciones', JSON.stringify(puntuaciones)); 
     

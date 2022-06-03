@@ -22,12 +22,12 @@ function nuevoEl(elemento, padre, contenido = null) {
 
 /**
  * Añade contenido dentro de un elemento
- * @param {string} elemento donde añadir contenido
+ * @param {string} padre elemento donde añadir contenido
  * @param {string} contenido a añadir, ya sea texto o HTML
  * @param {boolean} borra o no el contenido previo (opcional)
  */
-function ponHTML(elemento, contenido, borra = false) {
-    borra ? elemento.innerHTML = contenido : elemento.innerHTML += contenido;
+function ponHTML(padre, contenido, borra = false) {
+    borra ? padre.innerHTML = contenido : padre.innerHTML += contenido;
 }
 
 /**
@@ -109,8 +109,19 @@ function compruebaSpin() {
 /**
  * Si el número es menor que 10, añade un cero delante
  * @param {Number} numero 
- * @returns string
+ * @returns numero formateado
  */
 function dosDigitos(numero) {
     return numero < 10 ? '0' + numero : numero;
+}
+
+/**
+ * Obtiene la fecha y hora actual
+ * @returns fecha y hora formateada
+ */
+function fechaHoraActual() {
+    let ahora = new Date();
+    let fecha = `${dosDigitos(ahora.getDate())}-${dosDigitos(ahora.getMonth() + 1)}-${ahora.getFullYear()}`;
+    let hora  = `${dosDigitos(ahora.getHours())}:${dosDigitos(ahora.getMinutes())}:${dosDigitos(ahora.getSeconds())}`;
+    return fecha + ' ' + hora;
 }
