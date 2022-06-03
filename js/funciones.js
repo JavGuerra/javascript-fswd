@@ -10,12 +10,12 @@ function el(el) {
 /**
  * Crea un elemento nuevo dentro de un elemento padre con o sin contenido
  * @param {string} elemento a crear
- * @param {string} padre elemento dentro de donde se creará el elemento
+ * @param {string} padre dentro de donde se creará el elemento
  * @param {string} contenido que contendrá el nuevo elemento (opcional)
  * @returns el elemento añadido
  */
-function nuevo(elemento, padre, contenido = null) {
-    nuevo = document.createElement(elemento);
+function nuevoEl(elemento, padre, contenido = null) {
+    let nuevo = document.createElement(elemento);
     if (contenido) nuevo.innerHTML = contenido;
     return el(padre).appendChild(nuevo);
 }
@@ -26,7 +26,7 @@ function nuevo(elemento, padre, contenido = null) {
  * @param {string} contenido a añadir, ya sea texto o HTML
  * @param {boolean} borra o no el contenido previo (opcional)
  */
-function html(elemento, contenido, borra = false) {
+function ponHTML(elemento, contenido, borra = false) {
     borra ? elemento.innerHTML = contenido : elemento.innerHTML += contenido;
 }
 
@@ -61,7 +61,7 @@ function muestra(elemento, status) {
  * @param {objeto} boton a cambiar
  * @param {boolean} estado al que cambia
  */
-function btnInactivo(boton, estado) {
+function ponBtnInactivo(boton, estado) {
     boton.disabled = estado;
     boton.setAttribute('aria-disabled', estado);
 }
@@ -89,8 +89,8 @@ function cierraDialogo() {
 function ponSpin(estado) {
     estado ? spin++ : spin--;
 
-    if (estado && !intervalo) {
-        intervalo = setInterval(compruebaSpin, 300);
+    if (estado && !haySpins) {
+        haySpins = setInterval(compruebaSpin, 300);
         elZona.showModal();
     }
 }
@@ -100,17 +100,17 @@ function ponSpin(estado) {
  */
 function compruebaSpin() {
     if (!spin) {
-        clearInterval(intervalo);
-        intervalo = 0;
+        clearInterval(haySpins);
+        haySpins = 0;
         elZona.close(); 
     }
 }
 
-function existeClave(clave) {
-    return localStorage.getItem(clave) !== undefined && localStorage.getItem(clave);
-}
-
-/* Devuelve dos dígitos */
-function digitos(numero) {
-    return numero < 10 ? '0' + numero : numero ;
+/**
+ * Si el número es menor que 10, añade un cero delante
+ * @param {Number} numero 
+ * @returns string
+ */
+function dosDigitos(numero) {
+    return numero < 10 ? '0' + numero : numero;
 }
