@@ -58,9 +58,13 @@ button {
   border-bottom: 4px solid Green;
 }
 
-button:hover,
-main {
+button:hover {
   background-color: LimeGreen;
+}
+
+button:hover,
+#aciertos,
+main {
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.15);
 }
 
@@ -91,6 +95,30 @@ main {
 #cuestio,
 #resulta {
   display: none;
+}
+
+#aciertos {
+  width: 240px;
+  margin: 120px auto 2em;
+  padding-bottom: .4em;
+  background-color: #daeaf3;
+  border-radius: 7px;
+}
+
+#aciertos svg {
+  width: 200px;
+  height: 110px;
+  margin-top: -110px;
+  padding-bottom: 8px;
+}
+
+#aciertos p {
+  margin-top: 0;
+  margin-bottom: .5em;
+  font-family: "SummerSplash", Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  color: DarkOrange;
+  text-shadow: 2px 2px 0px Gold;
 }
 
 #error {
@@ -177,5 +205,21 @@ footer {
   button {
     width: 200px;
     font-size: 1.2em;
+  }
+
+  #aciertos {
+    width: 480px;
+    margin: 240px auto 2em;
+  }
+  
+  #aciertos svg {
+    width: 400px;
+    height: 220px;
+    margin-top: -220px;
+    padding-bottom: 4px;
+  }
+  
+  #aciertos p {
+    font-size: 2em;
   }
 }

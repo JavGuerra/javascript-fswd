@@ -37,6 +37,7 @@ function juego() {
  * Inicia las acciones relacionadas con el final del juego
  */
 function final() {
+    ponAguja(aciertos);
     ponHTML(elPuntua, aciertos, true);
     muestra(elCuestio, false);
     muestra(elResulta, true);

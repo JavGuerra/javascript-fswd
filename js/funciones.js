@@ -125,3 +125,24 @@ function fechaHoraActual() {
     let hora  = `${dosDigitos(ahora.getHours())}:${dosDigitos(ahora.getMinutes())}:${dosDigitos(ahora.getSeconds())}`;
     return fecha + ' ' + hora;
 }
+
+/**
+ *  Pone la aguja del contador en la posición indicada según 'aciertos'
+ * @param {Number} aciertos
+ */
+function ponAguja(aciertos) {
+    const posicionAguja = [
+        '0 -.28946 .28839 0 -139.16 -20.501',
+        '.089449 -.2753 .27428 .089119 -107.1 -76.177',
+        '.17014 -.23418 .23332 .16951 -59.407 -119.22',
+        '.23418 -.17014 .16951 .23332 -.74583 -145.42',
+        '.2753 -.089449 .089119 .27428 63.14 -152.21',
+        '.28946 0 0 .28839 126 -138.93',
+        '.2753 .089449 -.089119 .27428 181.67 -106.87',
+        '.23418 .17014 -.16951 .23332 224.72 -59.174',
+        '.17014 .23418 -.23332 .16951 250.92 -.51273',
+        '.089449 .2753 -.27428 .089119 257.71 63.373',
+        '0 .28946 -.28839 0 244.42 126.23'
+    ]
+    el('#aguja').setAttribute('transform', `matrix(${posicionAguja[aciertos]})`);
+}
