@@ -1,7 +1,7 @@
 {
-  "name": "Quiz de Verano",
+  "name": "Summer Quiz",
   "short_name": "Quiz",
-  "description": "Práctica final del módulo de JavaScript avanzado",
+  "description": "Final practice of the advanced JavaScript module",
   "lang": "es",
   "start_url": "index.html",
   "display": "fullscreen",

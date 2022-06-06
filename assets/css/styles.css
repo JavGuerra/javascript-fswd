@@ -45,7 +45,7 @@ h2 {
 button {
   font-family: "SummerSplash", Helvetica, Arial, sans-serif;
   padding: 0.6em 1em 0.5em;
-  margin: 1em 0.5em;
+  margin: 1.5em 0.5em 1em;
   width: 150px;
   font-size: 1em;
   font-variant: small-caps;
@@ -54,8 +54,8 @@ button {
   background-color: MediumSeaGreen;
   color: white;
   cursor: pointer;
-  border-right: 1px solid Green;
-  border-bottom: 4px solid Green;
+  border-right: 1px solid SeaGreen;
+  border-bottom: 4px solid SeaGreen;
 }
 
 button:hover {
@@ -63,7 +63,7 @@ button:hover {
 }
 
 button:hover,
-#aciertos,
+#score,
 main {
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.15);
 }
@@ -88,33 +88,33 @@ header img {
 
 main {
   padding: 1em;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 0.5em;
 }
 
-#cuestio,
-#resulta {
+#quiz,
+#result {
   display: none;
 }
 
-#aciertos {
-  width: 240px;
-  margin: 120px auto 2em;
-  padding-bottom: .4em;
+#score {
+  width: 290px;
+  margin: 150px auto 2em;
+  padding-bottom: 0.4em;
   background-color: #daeaf3;
   border-radius: 7px;
 }
 
-#aciertos svg {
-  width: 200px;
-  height: 110px;
-  margin-top: -110px;
+#score svg {
+  width: 250px;
+  height: 138px;
+  margin-top: -140px;
   padding-bottom: 8px;
 }
 
-#aciertos p {
+#score p {
   margin-top: 0;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   font-family: "SummerSplash", Helvetica, Arial, sans-serif;
   font-size: 1.5em;
   color: DarkOrange;
@@ -144,7 +144,7 @@ main {
   margin-top: 0.75em;
 }
 
-#aceptar {
+#ok {
   margin: 1.5em 0 0.75em;
   padding: 0.75em 2em 0.5em;
   border: none;
@@ -152,11 +152,11 @@ main {
   text-transform: uppercase;
 }
 
-#aceptar:focus {
+#ok:focus {
   outline: 2px solid LightSeaGreen;
 }
 
-#zona {
+#zone {
   border: none;
   background: none;
 }
@@ -186,7 +186,71 @@ footer {
   margin: 2em 0;
 }
 
-/* Estilos alternativos */
+#github {
+  width: 16px;
+  height: auto;
+  vertical-align: middle;
+}
+
+#tMeter {
+  display: none;
+}
+
+#total {
+  display: inline-block;
+  margin-top: 1em;
+  position: relative;
+  width: 200px;
+}
+
+#total::before {
+  content: "Poor";
+  font-size: small;
+  position: absolute;
+  top: -80%;
+  left: 0;
+}
+
+#total::after {
+  content: "Excellent";
+  font-size: small;
+  position: absolute;
+  top: -80%;
+  right: 0;
+}
+
+#scoresTable {
+  width: 250px;
+  margin: 2em auto 1em;
+  border-collapse: collapse;
+  font-size: 0.75em;
+}
+
+#scoresTable table,
+#scoresTable tr,
+#scoresTable th,
+#scoresTable td {
+  padding: 0.25em 0.5em;
+  border: 2px solid LightSeaGreen;
+}
+
+#scoresTable th {
+  font-variant: small-caps;
+  color: SeaGreen;
+  background-color: HoneyDew;
+}
+
+label[for=total],
+label[for=numQuestions] {
+  font-variant: small-caps;
+  color: SeaGreen;
+}
+
+#numQuestions {
+  margin-top: 2em;
+}
+
+/* Responsive design */
 @media (min-width: 768px) {
   body {
     margin: 2em auto;
@@ -197,7 +261,7 @@ footer {
   h1 {
     font-size: 2.5em;
   }
-  
+
   h2 {
     font-size: 4em;
   }
@@ -207,19 +271,19 @@ footer {
     font-size: 1.2em;
   }
 
-  #aciertos {
+  #score {
     width: 480px;
     margin: 240px auto 2em;
   }
-  
-  #aciertos svg {
+
+  #score svg {
     width: 400px;
     height: 220px;
     margin-top: -220px;
     padding-bottom: 4px;
   }
-  
-  #aciertos p {
+
+  #score p {
     font-size: 2em;
   }
 }

@@ -1,97 +1,120 @@
-let haySpins = spin = 0;
-let aciertos = 0;
-let puntuaciones = [];
+let range = 10;    // maximum score per quiz
+let hits = 0;      // hist in a quiz
+let scores = [];   // list of scores
+let numScores = 5; // number of scores to be displayed
 
-const elDialogo = el('#error'  );
-const elMsgErr  = el('#msgErr' );
-const btnAcepta = el('#aceptar');
-const elZona    = el('#zona'   );
+const elWelcome = el('#welcome');
+const elTable   = el('#table'  );
+const elTmeter  = el('#tmeter' );
+const elQuiz    = el('#quiz'   );
+const elResult  = el('#result' );
+const elHits    = el('#hits'   );
+const btnPlay   = el('#play'   );
+const btnEnd    = el('#end'    );
+const btnStart  = el('#start'  );
 
-const elBienven = el('#bienven');
-const elTabla   = el('#tabla'  );
-const elCuestio = el('#cuestio');
-const elResulta = el('#resulta');
-const elPuntua  = el('#puntos' );
-const btnJuego  = el('#juego'  );
-const btnFinal  = el('#final'  );
-const btnInicio = el('#inicio' );
+btnPlay.onclick  = play;
+btnEnd.onclick   = end;
+btnStart.onclick = start;
 
-btnAcepta.onclick = cierraDialogo;
-
-btnJuego.onclick  = juego;
-btnFinal.onclick  = final;
-btnInicio.onclick = inicio;
-
-if(localStorage.puntuaciones) muestraPuntuaciones();
+if(localStorage.scores) showScores();
+else hideScores();
 
 /**
- * Inicia las acciones relacionadas con el cuestionario
+ * Start the quiz
  */
-function juego() {
-    muestra(elBienven, false);
-    muestra(elCuestio, true);
-    aciertos = Math.floor(Math.random() * (10 - 0)) + 0;
+function play() {
+    showEl(elWelcome, false);
+    showEl(elQuiz, true);
+    getQuestions();
+    quiz();
 }
 
 /**
- * Inicia las acciones relacionadas con el final del juego
+ * Start the endgame actions
  */
-function final() {
-    ponAguja(aciertos);
-    ponHTML(elPuntua, aciertos, true);
-    muestra(elCuestio, false);
-    muestra(elResulta, true);
-    guardaPuntuacion();
+function end() {
+    setHand(hits);
+    addHTML(elHits, hits, true);
+    showEl(elQuiz, false);
+    showEl(elResult, true);
+    saveScore();
 }
 
 /**
- * Inicia las acciones relacionadas con el inicio del juego tras una partida
+ * Start the game again
  */
-function inicio() {
-    ponHTML(elTabla, '', true);
-    muestra(elResulta, false);
-    muestra(elBienven, true);
-    if(localStorage.puntuaciones) muestraPuntuaciones();
+function start() {
+    hideScores();
+    showEl(elResult, false);
+    showEl(elWelcome, true);
+    showScores();
 }
 
 /**
- * Muestra la tabla de puntuaciones almacenadas en localStorage
+ * Displays the scores stored in localStorage
  */
-function muestraPuntuaciones() {
-    ponSpin(true);
-    ponBtnInactivo(btnJuego, true);
+function showScores() {
+    let tbody, tr;
+    let value = available = percent = 0;
+    setSpin(true);
+    setInactiveBtn(btnPlay, true);
+    showEl(elTmeter, true);
 
-    puntuaciones = JSON.parse(localStorage.puntuaciones);
+    scores = JSON.parse(localStorage.scores);
 
-    // Tabla para mostrar datos //
-    for (let i = 0; i < puntuaciones.length; i++) {
+    tbody = createTable(elTable, 'scoresTable', ['Hits', 'Date & Time']);
+    scores.slice(-numScores).reverse().forEach(score => {
+        tr = createEl(tbody, 'tr');
+        createEl(tr, 'td', score.hits.toString());
+        createEl(tr, 'td', score.dateTime);
+        value += score.hits;
+        available++;
+    })
+    percent = setMeter(value, range, numScores, available);
 
-        // Sustituir la línea siguiente por la tabla //
-        console.log(puntuaciones[i].aciertos, puntuaciones[i].fechaHora);
+    setSpin(false);
+    setInactiveBtn(btnPlay, false);
+}
 
-        // La tabla debe ponerse dentro del elemento 'elTabla' (ver línea 11).
+/**
+ * Hide the scoring area
+ */
+function hideScores() {
+    addHTML(elTable, '', true);
+    showEl(elTmeter, false);
+}
+
+/**
+ * Saves the score of the completed quiz
+ */
+function saveScore() {
+    setSpin(true);
+    setInactiveBtn(btnStart, true);
+
+    if(localStorage.scores) {
+        scores = JSON.parse(localStorage.scores);
     }
-
-    ponSpin(false);
-    ponBtnInactivo(btnJuego, false);
-}
-
-/**
- * Guarda la puntuación del cuestionario realizado
- */
-function guardaPuntuacion() {
-    ponSpin(true);
-    ponBtnInactivo(btnInicio, true);
-
-    let fechaHora  = fechaHoraActual();
-    let puntuacion = {'aciertos': aciertos, 'fechaHora': fechaHora};
-
-    if(localStorage.puntuaciones) {
-        puntuaciones = JSON.parse(localStorage.puntuaciones);
-    }
-    puntuaciones.push(puntuacion);
-    localStorage.setItem('puntuaciones', JSON.stringify(puntuaciones)); 
+    scores.push({'hits': hits, 'dateTime': currentDateTime()});
+    localStorage.setItem('scores', JSON.stringify(scores)); 
     
-    ponSpin(false);
-    ponBtnInactivo(btnInicio, false);
+    setSpin(false);
+    setInactiveBtn(btnStart, false);
+}
+
+/**
+ * Gets the questions fot the Quiz
+ */
+function getQuestions() {
+    // TODO
+}
+
+/**
+ * Play the Quiz game
+ */
+function quiz() {
+
+    // TODO
+    hits = Math.floor(Math.random() * (10 - 0)) + 0;
+
 }
