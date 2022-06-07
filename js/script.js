@@ -6,7 +6,7 @@ let numScores = 5;  // Number of scores to be displayed
 let questions = []; // The quiz questions
 let question = {};  // Selected question and answers
 let qIndex = 1;     // Actual Q&A order number
-let optOK;          // The correct option is...
+let cards = [0, 1, 2, 3]; // Where questions are mixed 
 
 const elWelcome = el('#welcome');
 const elTable   = el('#table'  );
@@ -134,6 +134,7 @@ function askQuestion() {
     el('#opt3').checked = false;
     el('#opt4').checked = false;
 
+    // shuffle(cards);
     question = questions[qIndex - 1];
     addHTML(el('#category'  ), question.category);
     addHTML(el('#difficulty'), question.difficulty);
@@ -142,8 +143,6 @@ function askQuestion() {
     addHTML(el('label[for=opt2]'), question.incorrect_answers[0]);
     addHTML(el('label[for=opt3]'), question.incorrect_answers[1]);
     addHTML(el('label[for=opt4]'), question.incorrect_answers[2]);
-
-    optOK = 0; // TODO set the correct option
 
     setInactiveBtn(btnSend, false);
 }
