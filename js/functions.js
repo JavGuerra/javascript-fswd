@@ -5,6 +5,7 @@ const elErrMsg = el('#errMsg');
 const btnOK    = el('#ok'    );
 const elZone   = el('#zone'  );
 const elTotal  = el('#total' );
+const elNumQ   = el('#numQ'  );
 const elHand   = el('#hand'  );
 
 btnOK.onclick = closeDialog;
@@ -51,7 +52,7 @@ function createTable(parent, id, headers, footers = null) {
     })
     if (footers) {
         tfoot = createEl(table, 'tfoot');
-        tr = createEl(tfoot, 'tr');
+        tr    = createEl(tfoot, 'tr');
         footers.forEach(footer => {
             createEl(tr, 'td', footer);
         })  
@@ -77,12 +78,12 @@ function addHTML(parent, content, clean = false) {
 function fetchAPI(address, callback) {
     setSpin(true);
     fetch(address)
-        .then(response => { // fetch() no maneja errores de conexión, luego...
+        .then(response => {
             if (!response.ok) throw Error(response.statusText);
             return response.json();
         })
         .then(data => callback(data))
-        .catch(err => openDialog(err))
+        .catch(err => {openDialog(err); console.log(err)})
         .finally(setSpin(false));
 }
 
@@ -110,7 +111,7 @@ function setInactiveBtn(button, status) {
  * @param {String} mensaje to show
  */
 function openDialog(message) {
-    html(elErrMsg, message, true);
+    addHTML(elErrMsg, message, true);
     elDialog.showModal();
 }
 
@@ -185,6 +186,19 @@ function setMeter(value, range, numScores, available) {
     elTotal.setAttribute('low', max *.2);
     elTotal.textContent = percent + '%'; 
     return percent;  
+}
+
+/**
+ * Sets the progress bar parameters
+ * @param {Number} numQ number of questions per quiz
+ * @param {Number} q actual question
+ * @returns percent
+ */
+function setProgress(numQ, q) {
+    percent = (q * 100 / numQ);
+    elNumQ.setAttribute('value', q);
+    elNumQ.textContent = percent + '%';
+    return percent;
 }
 
 /**

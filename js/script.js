@@ -1,5 +1,6 @@
 let range = 10;    // maximum score per quiz
-let hits = 0;      // hist in a quiz
+let numQ  = 10;    // number of questions per quiz
+let hits  = 0;     // hist in a quiz
 let scores = [];   // list of scores
 let numScores = 5; // number of scores to be displayed
 
@@ -26,8 +27,7 @@ else hideScores();
 function play() {
     showEl(elWelcome, false);
     showEl(elQuiz, true);
-    getQuestions();
-    quiz();
+    questionnaire();
 }
 
 /**
@@ -103,18 +103,34 @@ function saveScore() {
 }
 
 /**
- * Gets the questions fot the Quiz
+ * Gets the questions for the Quiz
  */
-function getQuestions() {
-    // TODO
+function questionnaire() {
+    let address = `https://opentdb.com/api.php?amount=${numQ}&type=multiple`;
+    let query = (data) => {
+        if (data.response_code) throw Error('API n. ' + data.response_code);
+        quiz(data.results);
+    };
+    fetchAPI(address, query);
 }
 
 /**
  * Play the Quiz game
+ * @param {Array} questions for the questionnaire
  */
-function quiz() {
+function quiz(questions) {
 
-    // TODO
+    questions.forEach((question, q) => {
+        el('#category').innerHTML = question.category;
+        el('#difficulty').innerHTML = question.difficulty;
+        el('#question').innerHTML = question.question;
+        el('#option1').innerHTML = question.correct_answer;
+        el('#option2').innerHTML = question.incorrect_answers[0];
+        el('#option3').innerHTML = question.incorrect_answers[1];
+        el('#option4').innerHTML = question.incorrect_answers[2];
+        setProgress(numQ, q + 1);
+    })
+
     hits = Math.floor(Math.random() * (10 - 0)) + 0;
 
 }
