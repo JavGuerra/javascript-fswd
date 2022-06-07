@@ -202,7 +202,7 @@ function setProgress(numQ, q) {
 }
 
 /**
- *  Sets the hand to the indicated position according to 'hits'.
+ *  Sets the hand of the counter to the indicated position according to 'hits'.
  * @param {Number} hits
  */
 function setHand(hits) {

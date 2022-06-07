@@ -1,11 +1,11 @@
-let range = 10;     // maximum score per quiz
-let numQ  = 10;     // number of total questions per quiz
-let hits  = 0;      // hist in a quiz
-let scores = [];    // list of scores
-let numScores = 5;  // number of scores to be displayed
-let questions = []; // the quiz questions
-let question = '';  // selected question and answers
-let qIndex = 1;     // actual Q&A order number
+let range = 10;     // Maximum score per quiz
+let numQ  = 10;     // Number of total questions per quiz
+let hits  = 0;      // Hist in a quiz
+let scores = [];    // List of scores
+let numScores = 5;  // Number of scores to be displayed
+let questions = []; // The quiz questions
+let question = {};  // Selected question and answers
+let qIndex = 1;     // Actual Q&A order number
 
 const elWelcome = el('#welcome');
 const elTable   = el('#table'  );
