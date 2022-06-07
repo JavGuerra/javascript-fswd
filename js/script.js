@@ -23,15 +23,17 @@ btnSend.onclick  = event => checkAnswer(event);
 
 if(localStorage.scores) showScores();
 else hideScores();
+getQuiz();
 
 /**
  * Start the quiz
  */
 function play() {
     setProgress(numQ, 0);
+    setInactiveBtn(btnSend, true);
     showEl(elWelcome, false);
     showEl(elQuiz, true);
-    getQA();
+    askQuestion();
 }
 
 /**
@@ -53,6 +55,8 @@ function start() {
     showEl(elResult, false);
     showEl(elWelcome, true);
     showScores();
+    getQuiz();
+    qIndex = 1;
 }
 
 /**
@@ -109,48 +113,52 @@ function saveScore() {
 /**
  * Gets the questions for the Quiz
  */
-function getQA() {
+function getQuiz() {
     let address = `https://opentdb.com/api.php?amount=${numQ}&type=multiple`;
     let query = (data) => {
         if (data.response_code) throw Error('API #' + data.response_code);
         questions = data.results;
-        qIndex = 1;
-        ask();
     };
     fetchAPI(address, query);
 }
 
 /**
- * Play the Quiz game
+ * Show a new question
  */
-function ask() {
-    setInactiveBtn(btnSend, true);
+function askQuestion() {
+    setProgress(numQ, qIndex -1);
+    el('#opt1').checked = false;
+    el('#opt2').checked = false;
+    el('#opt3').checked = false;
+    el('#opt4').checked = false;
 
     question = questions[qIndex - 1];
-
-    setProgress(numQ, qIndex);
-
-    addHTML(el('#category'), question.category);
+    addHTML(el('#category'  ), question.category);
     addHTML(el('#difficulty'), question.difficulty);
-    addHTML(el('#question'), question.question);
-    addHTML(el('#option1'), question.correct_answer);
-    addHTML(el('#option2'), question.incorrect_answers[0]);
-    addHTML(el('#option3'), question.incorrect_answers[1]);
-    addHTML(el('#option4'), question.incorrect_answers[2]);
+    addHTML(el('#question'  ), question.question);
+    addHTML(el('label[for=opt1]'), question.correct_answer);
+    addHTML(el('label[for=opt2]'), question.incorrect_answers[0]);
+    addHTML(el('label[for=opt3]'), question.incorrect_answers[1]);
+    addHTML(el('label[for=opt4]'), question.incorrect_answers[2]);
 
     setInactiveBtn(btnSend, false);
 }
 
+/**
+ * Check the form
+ * @param {event} event prevent
+ */
 function checkAnswer(event) {
     event.preventDefault();
+    setInactiveBtn(btnSend, true);
     
-    //
+    // TODO check
 
     if (qIndex == numQ) {
         hits = Math.floor(Math.random() * (10 - 0)) + 0;
         end();
     } else {
         qIndex++;
-        ask();
+        askQuestion();
     }
 }

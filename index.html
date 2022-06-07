@@ -29,12 +29,12 @@
             <h2>Welcome</h2>
             <p>On this page you can take a fun 10-question quiz to test your knowledge.</p>
 
-            <div id="table"></div>
-
             <div id="tmeter">
                 <label for="total">Total:</label>
                 <meter id="total" min="0" low="30" optimum="50" high="70" max="100" value="0">0</meter>
             </div>
+            
+            <div id="table"></div>
 
             <div><button id="play">Play</button></div>
         </section>
@@ -43,26 +43,30 @@
             <h2>Quiz</h2>
 
             <div>
-                <label for="numQ">Progress:</label>
-                <progress id="numQ" max="10" value="0">0%</progress>
-            </div>
-
-            <div>
                 <p id="category"></p>
                 <p id="difficulty"></p>
                 <p id="question"></p>
             </div>
 
-            <form name="formulario" action="" method="get">
+            <form name="formulario" action="#" method="get">
                 <div>
-                    <p id="option1"></p>
-                    <p id="option2"></p>
-                    <p id="option3"></p>
-                    <p id="option4"></p>
+                    <input type="radio" id="opt1" name="opt" value="0" />
+                    <label for="opt1"></label>
+                    <input type="radio" id="opt2" name="opt" value="1" />
+                    <label for="opt2"></label>
+                    <input type="radio" id="opt3" name="opt" value="2" />
+                    <label for="opt3"></label>
+                    <input type="radio" id="opt4" name="opt" value="3" />
+                    <label for="opt4"></label>
                 </div>
 
                 <div><button id="send">Send</button></div>
             </form>
+
+            <div>
+                <label for="numQ">Progress:</label>
+                <progress id="numQ" max="10" value="0">0%</progress>
+            </div>
         </section>
 
         <section id="result">
