@@ -133,15 +133,16 @@ function getQuiz() {
 function askQuestion() {
     setProgress(numQ, qIndex -1);
 
+    question = questions[qIndex - 1];
+    addHTML(elCatego, question.category);
+    addHTML(elDiffic, question.difficulty);
+    addHTML(elQuesti, question.question);
+
     fisherYatesShuffle(cards);
     for (let i = 0; i <= 3; i++) {
         el(`#opt${i + 1}`).checked = false;
         el(`#opt${i + 1}`).setAttribute('value', cards[i]);
     }
-    question = questions[qIndex - 1];
-    addHTML(elCatego, question.category);
-    addHTML(elDiffic, question.difficulty);
-    addHTML(elQuesti, question.question);
 
     for (let i = 0; i <= 3; i++) {
         if(cards[i]) {
@@ -163,10 +164,12 @@ function checkAnswer(event) {
     event.preventDefault();
     setInactiveBtn(btnSend, true);
     
+    // Check
+
     // If (!response) hits++;
 
     if (qIndex == numQ) {
-        hits = Math.floor(Math.random() * (10 - 0)) + 0;
+        hits = Math.floor(Math.random() * (10 - 0)) + 0; // TODO borrar
         end();
     } else {
         qIndex++;
