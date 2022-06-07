@@ -221,3 +221,14 @@ function setHand(hits) {
     ]
     elHand.setAttribute('transform', `matrix(${handPosition[hits]})`);
 }
+
+/**
+ * Mixes the elements of an Array according to the Fisher-Yates method.
+ * @param {Array} arr 
+ */
+function fisherYatesShuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1)); //random index
+        [arr[i], arr[j]] = [arr[j], arr[i]]; // swap
+    }
+}

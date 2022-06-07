@@ -14,6 +14,9 @@ const elTmeter  = el('#tmeter' );
 const elQuiz    = el('#quiz'   );
 const elResult  = el('#result' );
 const elHits    = el('#hits'   );
+const elCatego  = el('#catego' );
+const elDiffic  = el('#diffic' );
+const elQuesti  = el('#questi' );
 const btnPlay   = el('#play'   );
 const btnSend   = el('#send'   );
 const btnStart  = el('#start'  );
@@ -129,20 +132,25 @@ function getQuiz() {
  */
 function askQuestion() {
     setProgress(numQ, qIndex -1);
-    el('#opt1').checked = false;
-    el('#opt2').checked = false;
-    el('#opt3').checked = false;
-    el('#opt4').checked = false;
 
-    // shuffle(cards);
+    fisherYatesShuffle(cards);
+    for (let i = 0; i <= 3; i++) {
+        el(`#opt${i + 1}`).checked = false;
+        el(`#opt${i + 1}`).setAttribute('value', cards[i]);
+    }
     question = questions[qIndex - 1];
-    addHTML(el('#category'  ), question.category);
-    addHTML(el('#difficulty'), question.difficulty);
-    addHTML(el('#question'  ), question.question);
-    addHTML(el('label[for=opt1]'), question.correct_answer);
-    addHTML(el('label[for=opt2]'), question.incorrect_answers[0]);
-    addHTML(el('label[for=opt3]'), question.incorrect_answers[1]);
-    addHTML(el('label[for=opt4]'), question.incorrect_answers[2]);
+    addHTML(elCatego, question.category);
+    addHTML(elDiffic, question.difficulty);
+    addHTML(elQuesti, question.question);
+
+    for (let i = 0; i <= 3; i++) {
+        if(cards[i]) {
+            addHTML(el(`label[for=opt${i + 1}]`), question.incorrect_answers[i]);
+        } else {
+            addHTML(el(`label[for=opt${i + 1}]`), question.correct_answer);
+            console.log(question.correct_answer); // Did someone ask for help? ;)
+        }
+    }
 
     setInactiveBtn(btnSend, false);
 }
@@ -155,8 +163,7 @@ function checkAnswer(event) {
     event.preventDefault();
     setInactiveBtn(btnSend, true);
     
-    // TODO check
-    // If (response == optOK) hits++;
+    // If (!response) hits++;
 
     if (qIndex == numQ) {
         hits = Math.floor(Math.random() * (10 - 0)) + 0;
