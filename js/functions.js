@@ -11,9 +11,9 @@ const elHand   = el('#hand'  );
 btnOK.onclick = closeDialog;
 
 /**
- * Returns a requested element
+ * Obtains a requested element
  * @param {string} el element to be obtained
- * @returns solicited element
+ * @returns requested element
  */
 function el(el) {
     return document.querySelector(el);
@@ -41,7 +41,7 @@ function createEl(parent, element, content = null) {
  * @returns 'tbody' element
  */
 function createTable(parent, id, headers, footers = null) {
-    let table, thead, tr, th, tfoot;
+    let table, thead, tfoot, tr, th;
     table = createEl(parent, 'table');
     table.setAttribute('id', id);
     thead = createEl(table , 'thead');
@@ -64,10 +64,10 @@ function createTable(parent, id, headers, footers = null) {
  * Adds content inside an element
  * @param {node} parent element where to add content
  * @param {String} content text or HTML
- * @param {Boolean} clean the previous content (optional)
+ * @param {Boolean} append the content (optional)
  */
-function addHTML(parent, content, clean = false) {
-    clean ? parent.innerHTML = content : parent.innerHTML += content;
+function addHTML(parent, content, append = false) {
+    append ? parent.innerHTML += content : parent.innerHTML = content;
 }
 
 /**
@@ -111,7 +111,7 @@ function setInactiveBtn(button, status) {
  * @param {String} mensaje to show
  */
 function openDialog(message) {
-    addHTML(elErrMsg, message, true);
+    addHTML(elErrMsg, message);
     elDialog.showModal();
 }
 

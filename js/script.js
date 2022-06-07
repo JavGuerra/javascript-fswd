@@ -1,8 +1,11 @@
-let range = 10;    // maximum score per quiz
-let numQ  = 10;    // number of questions per quiz
-let hits  = 0;     // hist in a quiz
-let scores = [];   // list of scores
-let numScores = 5; // number of scores to be displayed
+let range = 10;     // maximum score per quiz
+let numQ  = 10;     // number of total questions per quiz
+let hits  = 0;      // hist in a quiz
+let scores = [];    // list of scores
+let numScores = 5;  // number of scores to be displayed
+let questions = []; // the quiz questions
+let question = '';  // selected question and answers
+let qIndex = 1;     // actual Q&A order number
 
 const elWelcome = el('#welcome');
 const elTable   = el('#table'  );
@@ -11,12 +14,12 @@ const elQuiz    = el('#quiz'   );
 const elResult  = el('#result' );
 const elHits    = el('#hits'   );
 const btnPlay   = el('#play'   );
-const btnEnd    = el('#end'    );
+const btnSend   = el('#send'   );
 const btnStart  = el('#start'  );
 
 btnPlay.onclick  = play;
-btnEnd.onclick   = end;
 btnStart.onclick = start;
+btnSend.onclick  = event => checkAnswer(event);
 
 if(localStorage.scores) showScores();
 else hideScores();
@@ -25,9 +28,10 @@ else hideScores();
  * Start the quiz
  */
 function play() {
+    setProgress(numQ, 0);
     showEl(elWelcome, false);
     showEl(elQuiz, true);
-    questionnaire();
+    getQA();
 }
 
 /**
@@ -35,7 +39,7 @@ function play() {
  */
 function end() {
     setHand(hits);
-    addHTML(elHits, hits, true);
+    addHTML(elHits, hits);
     showEl(elQuiz, false);
     showEl(elResult, true);
     saveScore();
@@ -81,7 +85,7 @@ function showScores() {
  * Hide the scoring area
  */
 function hideScores() {
-    addHTML(elTable, '', true);
+    addHTML(elTable, '');
     showEl(elTmeter, false);
 }
 
@@ -105,32 +109,48 @@ function saveScore() {
 /**
  * Gets the questions for the Quiz
  */
-function questionnaire() {
+function getQA() {
     let address = `https://opentdb.com/api.php?amount=${numQ}&type=multiple`;
     let query = (data) => {
-        if (data.response_code) throw Error('API n. ' + data.response_code);
-        quiz(data.results);
+        if (data.response_code) throw Error('API #' + data.response_code);
+        questions = data.results;
+        qIndex = 1;
+        ask();
     };
     fetchAPI(address, query);
 }
 
 /**
  * Play the Quiz game
- * @param {Array} questions for the questionnaire
  */
-function quiz(questions) {
+function ask() {
+    setInactiveBtn(btnSend, true);
 
-    questions.forEach((question, q) => {
-        el('#category').innerHTML = question.category;
-        el('#difficulty').innerHTML = question.difficulty;
-        el('#question').innerHTML = question.question;
-        el('#option1').innerHTML = question.correct_answer;
-        el('#option2').innerHTML = question.incorrect_answers[0];
-        el('#option3').innerHTML = question.incorrect_answers[1];
-        el('#option4').innerHTML = question.incorrect_answers[2];
-        setProgress(numQ, q + 1);
-    })
+    question = questions[qIndex - 1];
 
-    hits = Math.floor(Math.random() * (10 - 0)) + 0;
+    setProgress(numQ, qIndex);
 
+    addHTML(el('#category'), question.category);
+    addHTML(el('#difficulty'), question.difficulty);
+    addHTML(el('#question'), question.question);
+    addHTML(el('#option1'), question.correct_answer);
+    addHTML(el('#option2'), question.incorrect_answers[0]);
+    addHTML(el('#option3'), question.incorrect_answers[1]);
+    addHTML(el('#option4'), question.incorrect_answers[2]);
+
+    setInactiveBtn(btnSend, false);
+}
+
+function checkAnswer(event) {
+    event.preventDefault();
+    
+    //
+
+    if (qIndex == numQ) {
+        hits = Math.floor(Math.random() * (10 - 0)) + 0;
+        end();
+    } else {
+        qIndex++;
+        ask();
+    }
 }
