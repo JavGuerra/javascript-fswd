@@ -6,6 +6,7 @@ let numScores = 5;  // Number of scores to be displayed
 let questions = []; // The quiz questions
 let question = {};  // Selected question and answers
 let qIndex = 1;     // Actual Q&A order number
+let optOK;          // The correct option is...
 
 const elWelcome = el('#welcome');
 const elTable   = el('#table'  );
@@ -57,6 +58,7 @@ function start() {
     showScores();
     getQuiz();
     qIndex = 1;
+    hits = 0;
 }
 
 /**
@@ -141,6 +143,8 @@ function askQuestion() {
     addHTML(el('label[for=opt3]'), question.incorrect_answers[1]);
     addHTML(el('label[for=opt4]'), question.incorrect_answers[2]);
 
+    optOK = 0; // TODO set the correct option
+
     setInactiveBtn(btnSend, false);
 }
 
@@ -153,6 +157,7 @@ function checkAnswer(event) {
     setInactiveBtn(btnSend, true);
     
     // TODO check
+    // If (response == optOK) hits++;
 
     if (qIndex == numQ) {
         hits = Math.floor(Math.random() * (10 - 0)) + 0;
