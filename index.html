@@ -27,7 +27,11 @@
     <main role="region" aria-live="polite">
         <section id="welcome">
             <h2>Welcome</h2>
-            <p>On this page you can take a fun 10-question quiz to test your knowledge.</p>
+
+            <p class="box">
+                <img src="assets/img/crabs.svg" alt="Comic crabs">
+                <br />On this page you can take a fun 10-question quiz to test your knowledge.
+            </p>
 
             <div id="tmeter">
                 <label for="total">Total:</label>
@@ -48,14 +52,20 @@
                 <p id="questi"></p>
             </div>
 
-            <form name="formulario" action="#" method="get">
+            <form name="quizForm" action="#" method="get">
                 <div>
                     <input type="radio" id="opt1" name="opt" value="0" />
                     <label for="opt1"></label>
+                </div>
+                <div>
                     <input type="radio" id="opt2" name="opt" value="0" />
                     <label for="opt2"></label>
+                </div>
+                <div>
                     <input type="radio" id="opt3" name="opt" value="0" />
                     <label for="opt3"></label>
+                </div>
+                <div>
                     <input type="radio" id="opt4" name="opt" value="0" />
                     <label for="opt4"></label>
                 </div>
@@ -82,7 +92,10 @@
                 <p>Has <span id="hits">0</span> out of &nbsp;10 hits</p>
             </div>
 
-            <p>Do you want to try again?</p>
+            <p class="box2">
+                <img src="assets/img/fish.svg" alt="Comic fish">
+                <br />Do you want to try again?
+            </p>
 
             <div><button id="start">Start</button></div>
         </section>

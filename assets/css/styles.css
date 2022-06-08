@@ -60,6 +60,7 @@ button {
 
 button:hover {
   background-color: LimeGreen;
+  transition: 0.3s;
 }
 
 button:hover,
@@ -72,6 +73,7 @@ button:disabled {
   background-color: DarkGray;
   border-right: 1px solid Gray;
   border-bottom: 4px solid Gray;
+  cursor: default;
 }
 
 button:disabled:hover {
@@ -103,6 +105,36 @@ main {
   padding-bottom: 0.4em;
   background-color: #daeaf3;
   border-radius: 7px;
+  animation: fadeIn linear 0.3s;
+  -webkit-animation: fadeIn linear 0.3s;
+  -moz-animation: fadeIn linear 0.3s;
+  -o-animation: fadeIn linear 0.3s;
+  -ms-animation: fadeIn linear 0.3s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }
 
 #score svg {
@@ -250,6 +282,47 @@ label[for=numQuestions] {
   margin-top: 1em;
 }
 
+form[name="quizForm"]  {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+form[name="quizForm"] div {
+  flex: 1 95%;
+}
+
+.box {
+  margin: 50px auto .5em;
+  width: 80%;
+}
+
+.box2 {
+  margin: 85px auto .5em;
+  width: 250px;
+}
+
+.box, .box2 {
+  background-color: lightgoldenrodyellow;
+  padding: .2em 1em 2em;
+  border-radius: 1em;
+}
+
+.box img {
+  margin-top: -50px;
+  max-width: 150px;
+}
+
+.box2 img {
+  margin-top: -70px;
+  max-width: 100px;
+}
+
+.box img, .box2 img {
+  width: 100%;
+  height: auto;
+}
+
 /* Responsive design */
 @media (min-width: 768px) {
   body {
@@ -285,5 +358,29 @@ label[for=numQuestions] {
 
   #score p {
     font-size: 2em;
+  }
+
+  form[name="quizForm"] div {
+    flex: 1 45%;
+  }
+
+  .box {
+    width: 80%;
+    margin: 125px auto .5em;
+  }
+
+  .box2 {
+    width: 300px;
+    margin: 170px auto .5em;
+  }
+  
+  .box img {
+    max-width: 300px;
+    margin-top: -125px;
+  }
+
+  .box2 img {
+    max-width: 200px;
+    margin-top: -140px;    
   }
 }

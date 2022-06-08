@@ -8,6 +8,8 @@ let question = {};  // Selected question and answers
 let qIndex = 1;     // Actual Q&A order number
 let cards = [0, 1, 2, 3]; // Where questions are mixed 
 
+const form = document.quizForm;
+
 const elWelcome = el('#welcome');
 const elTable   = el('#table'  );
 const elTmeter  = el('#tmeter' );
@@ -17,9 +19,20 @@ const elHits    = el('#hits'   );
 const elCatego  = el('#catego' );
 const elDiffic  = el('#diffic' );
 const elQuesti  = el('#questi' );
+
+const btnOpt1   = el('#opt1'   );
+const btnOpt2   = el('#opt2'   );
+const btnOpt3   = el('#opt3'   );
+const btnOpt4   = el('#opt4'   );
+
 const btnPlay   = el('#play'   );
 const btnSend   = el('#send'   );
 const btnStart  = el('#start'  );
+
+btnOpt1.onclick  = () => setInactiveBtn(btnSend, false);
+btnOpt2.onclick  = () => setInactiveBtn(btnSend, false);
+btnOpt3.onclick  = () => setInactiveBtn(btnSend, false);
+btnOpt4.onclick  = () => setInactiveBtn(btnSend, false);
 
 btnPlay.onclick  = play;
 btnStart.onclick = start;
@@ -134,6 +147,7 @@ function askQuestion() {
     setProgress(numQ, qIndex -1);
 
     question = questions[qIndex - 1];
+
     addHTML(elCatego, question.category);
     addHTML(elDiffic, question.difficulty);
     addHTML(elQuesti, question.question);
@@ -142,9 +156,6 @@ function askQuestion() {
     for (let i = 0; i <= 3; i++) {
         el(`#opt${i + 1}`).checked = false;
         el(`#opt${i + 1}`).setAttribute('value', cards[i]);
-    }
-
-    for (let i = 0; i <= 3; i++) {
         if(cards[i]) {
             addHTML(el(`label[for=opt${i + 1}]`), question.incorrect_answers[i]);
         } else {
@@ -152,8 +163,6 @@ function askQuestion() {
             console.log(question.correct_answer); // Did someone ask for help? ;)
         }
     }
-
-    setInactiveBtn(btnSend, false);
 }
 
 /**
@@ -164,15 +173,14 @@ function checkAnswer(event) {
     event.preventDefault();
     setInactiveBtn(btnSend, true);
     
-    // Check
+    if (!el('input[name="opt"]:checked')) openDialog('Seleccione una opción');
+    else {
+        if (form.opt.value == 0) hits++;
 
-    // If (!response) hits++;
-
-    if (qIndex == numQ) {
-        hits = Math.floor(Math.random() * (10 - 0)) + 0; // TODO borrar
-        end();
-    } else {
-        qIndex++;
-        askQuestion();
+        if (qIndex == numQ) end();
+        else {
+            qIndex++;
+            askQuestion();
+        }
     }
 }
