@@ -155,12 +155,12 @@ function askQuestion() {
     fisherYatesShuffle(cards);
     for (let i = 0; i <= 3; i++) {
         el(`#opt${i + 1}`).checked = false;
-        el(`#opt${i + 1}`).setAttribute('value', cards[i]);
-        if(cards[i]) {
-            addHTML(el(`label[for=opt${i + 1}]`), question.incorrect_answers[i]);
+        el(`#opt${i + 1}`).setAttribute('value', cards[i]); 
+        if (cards[i]) {
+            addHTML(el(`label[for=opt${i + 1}]`), question.incorrect_answers[cards[i] - 1]);
         } else {
             addHTML(el(`label[for=opt${i + 1}]`), question.correct_answer);
-            console.log(question.correct_answer); // Did someone ask for help? ;)
+            console.log(decodeHTMLEntities(question.correct_answer)); // Did someone ask for help?;
         }
     }
 }

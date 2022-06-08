@@ -232,3 +232,20 @@ function fisherYatesShuffle(arr) {
         [arr[i], arr[j]] = [arr[j], arr[i]]; // swap
     }
 }
+   
+/**
+ * Decodes HTML entities from a string
+ * @author Gustavo
+ * @param {string} str string with HTML entities
+ * @returns string with HTML entity conversion
+ */
+function decodeHTMLEntities(str) {
+    let result = null;
+    if(str && typeof str === 'string') {
+        let element = document.createElement('div');
+        element.innerHTML = str;
+        result = element.textContent;
+        element.textContent = '';
+    }
+    return result;
+}
