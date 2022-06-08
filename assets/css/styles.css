@@ -298,11 +298,27 @@ form[name="quizForm"] div {
 }
 
 .box2 {
+  width: 80%;
+  margin: 0 auto .5em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box2 span {
+  margin: .5em 0 .5em .5em;
+  background-color: lightgoldenrodyellow;
+  padding: 2em 1em;
+  border-radius: 1em;
+  flex: 1 95%;
+}
+
+.box3 {
   margin: 85px auto .5em;
   width: 250px;
 }
 
-.box, .box2 {
+.box, .box3 {
   background-color: lightgoldenrodyellow;
   padding: .2em 1em 2em;
   border-radius: 1em;
@@ -314,11 +330,15 @@ form[name="quizForm"] div {
 }
 
 .box2 img {
+  max-width: 50px;
+}
+
+.box3 img {
   margin-top: -70px;
   max-width: 100px;
 }
 
-.box img, .box2 img {
+.box img, .box2 img, .box3 img {
   width: 100%;
   height: auto;
 }
@@ -370,6 +390,11 @@ form[name="quizForm"] div {
   }
 
   .box2 {
+    flex-wrap: nowrap;
+    margin-bottom: 1.5em;
+  }
+
+  .box3 {
     width: 300px;
     margin: 170px auto .5em;
   }
@@ -380,6 +405,10 @@ form[name="quizForm"] div {
   }
 
   .box2 img {
+    max-width: 100px;
+  }
+
+  .box3 img {
     max-width: 200px;
     margin-top: -140px;    
   }
