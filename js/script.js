@@ -175,6 +175,8 @@ function checkAnswer(event) {
     
     if (!el('input[name="opt"]:checked')) openDialog('Seleccione una opción');
     else {
+        window.scroll(0,0);
+
         if (form.opt.value == 0) hits++;
 
         if (qIndex == numQ) end();

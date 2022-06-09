@@ -141,7 +141,7 @@ main {
   width: 250px;
   height: 138px;
   margin-top: -140px;
-  padding-bottom: 8px;
+  padding-bottom: 6px;
 }
 
 #score p {
@@ -437,7 +437,7 @@ input:checked + .button-label:hover {
     width: 400px;
     height: 220px;
     margin-top: -220px;
-    padding-bottom: 4px;
+    padding-bottom: 3px;
   }
 
   #score p {
