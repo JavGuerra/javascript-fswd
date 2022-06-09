@@ -46,32 +46,32 @@
         <section id="quiz">
             <h2>Quiz</h2>
 
-            <div>
-                <p id="catego"></p>
-                <p id="diffic"></p>
-            </div>
-
-            <p class="box2">
+            <div class="box2">
                 <img src="assets/img/starfish.svg" alt="Cartoon starfish" />
                 <span id="questi"></span>
-            </p>
+            </div>
+
+            <div id="info">
+                <p>Difficulty: <span id="diffic"></span></p>
+                <p>Category: <span id="catego"></span></p>
+            </div>
 
             <form name="quizForm" action="#" method="get">
                 <div>
-                    <input type="radio" id="opt1" name="opt" value="0" />
-                    <label for="opt1"></label>
+                    <input class="hidden" type="radio" id="opt1" name="opt" value="0" />
+                    <label class="button-label" for="opt1"></label>
                 </div>
                 <div>
-                    <input type="radio" id="opt2" name="opt" value="0" />
-                    <label for="opt2"></label>
+                    <input class="hidden" type="radio" id="opt2" name="opt" value="0" />
+                    <label class="button-label" for="opt2"></label>
                 </div>
                 <div>
-                    <input type="radio" id="opt3" name="opt" value="0" />
-                    <label for="opt3"></label>
+                    <input class="hidden" type="radio" id="opt3" name="opt" value="0" />
+                    <label class="button-label" for="opt3"></label>
                 </div>
                 <div>
-                    <input type="radio" id="opt4" name="opt" value="0" />
-                    <label for="opt4"></label>
+                    <input class="hidden" type="radio" id="opt4" name="opt" value="0" />
+                    <label class="button-label" for="opt4"></label>
                 </div>
 
                 <div><button id="send">Send</button></div>

@@ -147,12 +147,12 @@ function askQuestion() {
     setProgress(numQ, qIndex -1);
 
     question = questions[qIndex - 1];
+    fisherYatesShuffle(cards);
 
     addHTML(elCatego, question.category);
     addHTML(elDiffic, question.difficulty);
     addHTML(elQuesti, question.question);
 
-    fisherYatesShuffle(cards);
     for (let i = 0; i <= 3; i++) {
         el(`#opt${i + 1}`).checked = false;
         el(`#opt${i + 1}`).setAttribute('value', cards[i]); 

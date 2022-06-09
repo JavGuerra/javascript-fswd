@@ -44,40 +44,41 @@ h2 {
 
 button {
   font-family: "SummerSplash", Helvetica, Arial, sans-serif;
-  padding: 0.6em 1em 0.5em;
+  /* padding: 0.6em 1em 0.5em; */
+  padding: 1em;
   margin: 1.5em 0.5em 1em;
   width: 150px;
   font-size: 1em;
   font-variant: small-caps;
   letter-spacing: 1pt;
   border: none;
+  border-radius: 0.25em;
   background-color: MediumSeaGreen;
   color: white;
   cursor: pointer;
-  border-right: 1px solid SeaGreen;
-  border-bottom: 4px solid SeaGreen;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.22);
+  transition: 0.3s;
+  user-select: none;
 }
 
 button:hover {
   background-color: LimeGreen;
-  transition: 0.3s;
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 rgba(0,0,0,0.22);
 }
 
-button:hover,
 #score,
 main {
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.15);
 }
 
 button:disabled {
-  background-color: DarkGray;
-  border-right: 1px solid Gray;
-  border-bottom: 4px solid Gray;
+  background-color: Gainsboro;
+  color: DarkGray;
   cursor: default;
 }
 
 button:disabled:hover {
-  box-shadow: none;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.22);
 }
 
 header img {
@@ -282,7 +283,15 @@ label[for=numQuestions] {
   margin-top: 1em;
 }
 
+#info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
 form[name="quizForm"]  {
+  width: 90%;
+  margin: 2em auto;
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
@@ -292,24 +301,56 @@ form[name="quizForm"] div {
   flex: 1 95%;
 }
 
+.button-label {
+  display: block;
+  text-align: center;
+  padding: 1em;
+  cursor: pointer;
+  border-radius: 0.25em;
+  background: PeachPuff;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.22);
+  transition: 0.3s;
+  user-select: none;
+}
+
+.button-label:hover {
+  background: BlanchedAlmond;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 rgba(0,0,0,0.22);
+}
+
+input:checked + .button-label {
+  background: Salmon;
+  color: white;
+}
+
+input:checked + .button-label:hover {
+  background: LightSalmon;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
 .box {
   margin: 50px auto .5em;
   width: 80%;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.22);
 }
 
 .box2 {
-  width: 80%;
-  margin: 0 auto .5em;
+  width: 90%;
+  margin: .5em auto .5em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .box2 span {
-  margin: .5em 0 .5em .5em;
   background-color: lightgoldenrodyellow;
-  padding: 2em 1em;
-  border-radius: 1em;
+  padding: 2em;
+  border: 2px solid yellow;
+  border-radius: 3em;
   flex: 1 95%;
 }
 
@@ -343,6 +384,23 @@ form[name="quizForm"] div {
   height: auto;
 }
 
+#info {
+  width: 90%;
+  margin: 0 auto 1em;
+  font-size: small;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#info p {
+  font-variant: small-caps;
+  color: lightskyblue;
+  margin: .5em 0 0;
+  padding: 0;
+  flex: 1 95%;
+}
+
 /* Responsive design */
 @media (min-width: 768px) {
   body {
@@ -362,6 +420,7 @@ form[name="quizForm"] div {
   button {
     width: 200px;
     font-size: 1.2em;
+    padding: .75em;
   }
 
   #score {
@@ -386,12 +445,12 @@ form[name="quizForm"] div {
 
   .box {
     width: 80%;
-    margin: 125px auto .5em;
+    margin: 125px auto 1em;
   }
 
   .box2 {
+    margin: 1em auto 0;
     flex-wrap: nowrap;
-    margin-bottom: 1.5em;
   }
 
   .box3 {
@@ -411,5 +470,11 @@ form[name="quizForm"] div {
   .box3 img {
     max-width: 200px;
     margin-top: -140px;    
+  }
+
+  #info {
+    margin: 0 auto 2em;
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
 }
