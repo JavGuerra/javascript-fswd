@@ -38,6 +38,7 @@ btnPlay.onclick  = play;
 btnStart.onclick = start;
 btnSend.onclick  = event => checkAnswer(event);
 
+setInactiveBtn(btnPlay, true);
 if(localStorage.scores) showScores();
 else hideScores();
 getQuiz();
@@ -68,13 +69,12 @@ function end() {
  * Start the game again
  */
 function start() {
+    setInactiveBtn(btnPlay, true);
     hideScores();
     showEl(elResult, false);
     showEl(elWelcome, true);
     showScores();
     getQuiz();
-    qIndex = 1;
-    hits = 0;
 }
 
 /**
@@ -84,7 +84,6 @@ function showScores() {
     let tbody, tr;
     let value = available = percent = 0;
     setSpin(true);
-    setInactiveBtn(btnPlay, true);
     showEl(elTmeter, true);
 
     scores = JSON.parse(localStorage.scores);
@@ -100,7 +99,6 @@ function showScores() {
     percent = setMeter(value, range, numScores, available);
 
     setSpin(false);
-    setInactiveBtn(btnPlay, false);
 }
 
 /**
@@ -136,8 +134,12 @@ function getQuiz() {
     let query = (data) => {
         if (data.response_code) throw Error('API #' + data.response_code);
         questions = data.results;
+        qIndex = 1;
+        hits = 0;
     };
     fetchAPI(address, query);
+
+    setInactiveBtn(btnPlay, false);
 }
 
 /**
