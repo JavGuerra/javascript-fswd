@@ -245,7 +245,7 @@ function decodeHTMLEntities(str) {
         let element = document.createElement('div');
         element.innerHTML = str;
         result = element.textContent;
-        element.textContent = '';
+        element.remove();
     }
     return result;
 }

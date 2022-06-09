@@ -347,7 +347,7 @@ input:checked + .button-label:hover {
 
 .box2 span {
   font-weight: bold;
-  color: Olive;
+  color: DarkGoldenrod;
   background-color: LemonChiffon;
   padding: 1em;
   border: 2px solid yellow;
@@ -363,7 +363,7 @@ input:checked + .button-label:hover {
 .box, .box3 {
   font-family: "SummerSplash", Helvetica, Arial, sans-serif;
   font-size: 1.1em;
-  color: Olive;
+  color: DarkGoldenrod;
   background-color: lightgoldenrodyellow;
   padding: .5em 1em 2em;
   border-radius: 1em;
