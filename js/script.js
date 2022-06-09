@@ -136,10 +136,9 @@ function getQuiz() {
         questions = data.results;
         qIndex = 1;
         hits = 0;
+        setInactiveBtn(btnPlay, false);
     };
     fetchAPI(address, query);
-
-    setInactiveBtn(btnPlay, false);
 }
 
 /**
