@@ -346,10 +346,12 @@ input:checked + .button-label:hover {
 }
 
 .box2 span {
-  background-color: lightgoldenrodyellow;
+  font-weight: bold;
+  color: Olive;
+  background-color: LemonChiffon;
   padding: 1em;
   border: 2px solid yellow;
-  border-radius: 1.5em;
+  border-radius: 1em;
   flex: 1 95%;
 }
 
@@ -473,7 +475,7 @@ input:checked + .button-label:hover {
 
   .box2 img {
     max-width: 100px;
-    margin-right: 1em;
+    margin-right: .5em;
   }
 
   .box3 img {
@@ -482,8 +484,9 @@ input:checked + .button-label:hover {
   }
   
   .box2 span {
-    padding: 2em;
-    border-radius: 2.5em;
+    margin: 0;
+    padding: 1.5em;
+    border-radius: 2em;
   }
 
   #info {
