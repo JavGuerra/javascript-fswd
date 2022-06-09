@@ -359,8 +359,11 @@ input:checked + .button-label:hover {
 }
 
 .box, .box3 {
+  font-family: "SummerSplash", Helvetica, Arial, sans-serif;
+  font-size: 1.1em;
+  color: Olive;
   background-color: lightgoldenrodyellow;
-  padding: .2em 1em 2em;
+  padding: .5em 1em 2em;
   border-radius: 1em;
 }
 
@@ -473,14 +476,14 @@ input:checked + .button-label:hover {
     margin-right: 1em;
   }
 
-  .box2 span {
-    padding: 2em;
-    border-radius: 2.5em;
-  }
-
   .box3 img {
     margin-top: -100px;
     max-width: 160px;    
+  }
+  
+  .box2 span {
+    padding: 2em;
+    border-radius: 2.5em;
   }
 
   #info {
