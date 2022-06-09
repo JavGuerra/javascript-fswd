@@ -1,4 +1,7 @@
+let counterUrl = 'https://javguerra.github.io/javascript-fswd/assets/img/counter.svg';
+
 let spins = areSpins = 0;
+let elHand;
 
 const elDialog = el('#error' );
 const elErrMsg = el('#errMsg');
@@ -6,7 +9,7 @@ const btnOK    = el('#ok'    );
 const elZone   = el('#zone'  );
 const elTotal  = el('#total' );
 const elNumQ   = el('#numQ'  );
-const elHand   = el('#hand'  );
+const counter  = el('#counter');
 
 btnOK.onclick = closeDialog;
 
@@ -248,4 +251,21 @@ function decodeHTMLEntities(str) {
         element.remove();
     }
     return result;
+}
+
+/**
+ * Loads the SVGs that will be embedded in the HTML
+ */
+function loadSvgImages() {
+    setSpin(true);
+    fetch(counterUrl)
+        .then(response => {
+            if (!response.ok) throw Error(response.statusText);
+            return response.text()})
+        .then(xml => {
+            counter.innerHTML = xml;
+            elHand = el('#hand');
+        })
+        .catch(err => {openDialog(err); console.log(err)})
+        .finally(setSpin(false));
 }

@@ -1,3 +1,5 @@
+loadSvgImages();
+
 let range = 10;     // Maximum score per quiz
 let numQ  = 10;     // Number of total questions per quiz
 let hits  = 0;      // Hist in a quiz
