@@ -294,7 +294,7 @@ form[name="quizForm"]  {
   margin: 2em auto 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 1.5em;
 }
 
 form[name="quizForm"] div {
