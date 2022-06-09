@@ -291,7 +291,7 @@ label[for=numQuestions] {
 
 form[name="quizForm"]  {
   width: 90%;
-  margin: 2em auto;
+  margin: 2em auto 0;
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
@@ -465,6 +465,7 @@ input:checked + .button-label:hover {
 
   .box2 img {
     max-width: 100px;
+    margin-right: 1em;
   }
 
   .box3 img {
