@@ -46,7 +46,7 @@ button {
   font-family: "SummerSplash", Helvetica, Arial, sans-serif;
   /* padding: 0.6em 1em 0.5em; */
   padding: 1em;
-  margin: 1.5em 0.5em 1em;
+  margin: 0.75em 0.5em 0.75em;
   width: 150px;
   font-size: 1em;
   font-variant: small-caps;
@@ -348,7 +348,7 @@ input:checked + .button-label:hover {
 
 .box2 span {
   background-color: lightgoldenrodyellow;
-  padding: 2em;
+  padding: 1em;
   border: 2px solid yellow;
   border-radius: 3em;
   flex: 1 95%;
@@ -395,10 +395,15 @@ input:checked + .button-label:hover {
 
 #info p {
   font-variant: small-caps;
-  color: lightskyblue;
-  margin: .5em 0 0;
+  color: silver;
+  margin: 0 0 -1em;
   padding: 0;
   flex: 1 95%;
+}
+
+#info p span {
+  font-weight: bold;
+  color: LightSalmon;
 }
 
 /* Responsive design */
@@ -449,7 +454,7 @@ input:checked + .button-label:hover {
   }
 
   .box2 {
-    margin: 1em auto 0;
+    margin: 1.2em auto .25em;
     flex-wrap: nowrap;
   }
 
@@ -468,13 +473,17 @@ input:checked + .button-label:hover {
     margin-right: 1em;
   }
 
+  .box2 span {
+    padding: 2em;
+  }
+
   .box3 img {
     max-width: 200px;
     margin-top: -140px;    
   }
 
   #info {
-    margin: 0 auto 2em;
+    margin: 0 auto 2.5em;
     flex-wrap: nowrap;
     justify-content: space-between;
   }
