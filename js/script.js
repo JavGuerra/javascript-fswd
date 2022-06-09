@@ -1,5 +1,3 @@
-loadSvgImages();
-
 let range = 10;     // Maximum score per quiz
 let numQ  = 10;     // Number of total questions per quiz
 let hits  = 0;      // Hist in a quiz
@@ -40,6 +38,7 @@ btnPlay.onclick  = play;
 btnStart.onclick = start;
 btnSend.onclick  = event => checkAnswer(event);
 
+loadSvgImages();
 setInactiveBtn(btnPlay, true);
 if(localStorage.scores) showScores();
 else hideScores();
@@ -61,7 +60,7 @@ function play() {
  */
 function end() {
     setHand(hits);
-    addHTML(elHits, hits);
+    elHits.innerHTML = hits;
     showEl(elQuiz, false);
     showEl(elResult, true);
     saveScore();
@@ -107,7 +106,7 @@ function showScores() {
  * Hide the scoring area
  */
 function hideScores() {
-    addHTML(elTable, '');
+    elTable.innerHTML = '';
     showEl(elTmeter, false);
 }
 
@@ -152,17 +151,17 @@ function askQuestion() {
     question = questions[qIndex - 1];
     fisherYatesShuffle(cards);
 
-    addHTML(elCatego, question.category);
-    addHTML(elDiffic, question.difficulty);
-    addHTML(elQuesti, question.question);
+    elCatego.innerHTML = question.category;
+    elDiffic.innerHTML = question.difficulty;
+    elQuesti.innerHTML = question.question;
 
     for (let i = 0; i <= 3; i++) {
         el(`#opt${i + 1}`).checked = false;
         el(`#opt${i + 1}`).setAttribute('value', cards[i]); 
         if (cards[i]) {
-            addHTML(el(`label[for=opt${i + 1}]`), question.incorrect_answers[cards[i] - 1]);
+            el(`label[for=opt${i + 1}]`).innerHTML = question.incorrect_answers[cards[i] - 1];
         } else {
-            addHTML(el(`label[for=opt${i + 1}]`), question.correct_answer);
+            el(`label[for=opt${i + 1}]`).innerHTML = question.correct_answer;
             console.log(decodeHTMLEntities(question.correct_answer)); // Did someone ask for help?;
         }
     }

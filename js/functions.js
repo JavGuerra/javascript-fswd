@@ -64,16 +64,6 @@ function createTable(parent, id, headers, footers = null) {
 }
 
 /**
- * Adds content inside an element
- * @param {node} parent element where to add content
- * @param {String} content text or HTML
- * @param {Boolean} append the content (optional)
- */
-function addHTML(parent, content, append = false) {
-    append ? parent.innerHTML += content : parent.innerHTML = content;
-}
-
-/**
  * Queries the API on the given address and executes the callback function
  * @param {String} address to API
  * @param {function} callback to be executed
@@ -114,7 +104,7 @@ function setInactiveBtn(button, status) {
  * @param {String} mensaje to show
  */
 function openDialog(message) {
-    addHTML(elErrMsg, message);
+    elErrMsg.innerHTML = message;
     elDialog.showModal();
 }
 
@@ -205,27 +195,6 @@ function setProgress(numQ, q) {
 }
 
 /**
- *  Sets the hand of the counter to the indicated position according to 'hits'.
- * @param {Number} hits
- */
-function setHand(hits) {
-    const  handPosition = [
-        '0 -.28946 .28839 0 -139.16 -20.501',
-        '.089449 -.2753 .27428 .089119 -107.1 -76.177',
-        '.17014 -.23418 .23332 .16951 -59.407 -119.22',
-        '.23418 -.17014 .16951 .23332 -.74583 -145.42',
-        '.2753 -.089449 .089119 .27428 63.14 -152.21',
-        '.28946 0 0 .28839 126 -138.93',
-        '.2753 .089449 -.089119 .27428 181.67 -106.87',
-        '.23418 .17014 -.16951 .23332 224.72 -59.174',
-        '.17014 .23418 -.23332 .16951 250.92 -.51273',
-        '.089449 .2753 -.27428 .089119 257.71 63.373',
-        '0 .28946 -.28839 0 244.42 126.23'
-    ]
-    elHand.setAttribute('transform', `matrix(${handPosition[hits]})`);
-}
-
-/**
  * Mixes the elements of an Array according to the Fisher-Yates method.
  * @param {Array} arr 
  */
@@ -268,4 +237,25 @@ function loadSvgImages() {
         })
         .catch(err => {openDialog(err); console.log(err)})
         .finally(setSpin(false));
+}
+
+/**
+ *  Sets the hand of the counter to the indicated position according to 'hits'.
+ * @param {Number} hits
+ */
+ function setHand(hits) {
+    const  handPosition = [
+        '0 -.28946 .28839 0 -139.16 -20.501',
+        '.089449 -.2753 .27428 .089119 -107.1 -76.177',
+        '.17014 -.23418 .23332 .16951 -59.407 -119.22',
+        '.23418 -.17014 .16951 .23332 -.74583 -145.42',
+        '.2753 -.089449 .089119 .27428 63.14 -152.21',
+        '.28946 0 0 .28839 126 -138.93',
+        '.2753 .089449 -.089119 .27428 181.67 -106.87',
+        '.23418 .17014 -.16951 .23332 224.72 -59.174',
+        '.17014 .23418 -.23332 .16951 250.92 -.51273',
+        '.089449 .2753 -.27428 .089119 257.71 63.373',
+        '0 .28946 -.28839 0 244.42 126.23'
+    ]
+    elHand.setAttribute('transform', `matrix(${handPosition[hits]})`);
 }
