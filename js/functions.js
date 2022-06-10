@@ -1,7 +1,8 @@
 let counterUrl = 'https://javguerra.github.io/javascript-fswd/assets/img/counter.svg';
+let chartUrl = 'https://javguerra.github.io/javascript-fswd/assets/img/linechart.svg';
 
+let elHand, elLine;
 let spins = areSpins = 0;
-let elHand;
 
 const elDialog = el('#error' );
 const elErrMsg = el('#errMsg');
@@ -10,6 +11,7 @@ const elZone   = el('#zone'  );
 const elTotal  = el('#total' );
 const elNumQ   = el('#numQ'  );
 const counter  = el('#counter');
+const chart    = el('#chart' );
 
 btnOK.onclick = closeDialog;
 
@@ -195,7 +197,7 @@ function setProgress(numQ, q) {
 }
 
 /**
- * Mixes the elements of an Array according to the Fisher-Yates method.
+ * Mixes the elements of an Array according to the Fisher-Yates method
  * @param {Array} arr 
  */
 function fisherYatesShuffle(arr) {
@@ -237,10 +239,22 @@ function loadSvgImages() {
         })
         .catch(err => {openDialog(err); console.log(err)})
         .finally(setSpin(false));
+
+        setSpin(true);
+        fetch(chartUrl)
+            .then(response => {
+                if (!response.ok) throw Error(response.statusText);
+                return response.text()})
+            .then(xml => {
+                chart.innerHTML = xml;
+                elLine = el('#theline');
+            })
+            .catch(err => {openDialog(err); console.log(err)})
+            .finally(setSpin(false));
 }
 
 /**
- *  Sets the hand of the counter to the indicated position according to 'hits'.
+ *  Sets the hand of the counter to the indicated position according to 'hits'
  * @param {Number} hits
  */
  function setHand(hits) {
@@ -258,4 +272,15 @@ function loadSvgImages() {
         '0 .28946 -.28839 0 244.42 126.23'
     ]
     elHand.setAttribute('transform', `matrix(${handPosition[hits]})`);
+}
+
+/**
+ * Sets the values of the line chart
+ * @param {Array} ordinates hits
+ */
+function setChartLine(ordinates = []) {
+    let i, ord, numOrd = ordinates.length;
+    if(numOrd < 5) for (i = 0; i < 5 - numOrd; i++) ordinates.unshift(0);
+    ord = ordinates.slice(-5).map(x => 73 - x * 7.1);
+    elLine.setAttribute('points', `11 ${ord[0]} 33.5 ${ord[1]} 56 ${ord[2]} 78.5 ${ord[3]} 101 ${ord[4]}`);
 }
