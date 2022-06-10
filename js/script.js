@@ -9,6 +9,9 @@ let question = {};  // Selected question and answers
 let qIndex = 1;     // Actual Q&A order number
 let cards = [0, 1, 2, 3]; // Where questions are mixed 
 
+let address  = `https://opentdb.com/api.php?amount=${numQ - 1}&type=multiple`;
+let address2 = 'https://javguerra.github.io/javascript-fswd/js/questions.json';
+
 const form = document.quizForm;
 
 const elWelcome = el('#welcome');
@@ -142,14 +145,22 @@ function saveScore() {
  * Gets the questions for the Quiz
  */
 function getQuiz() {
-    let address = `https://opentdb.com/api.php?amount=${numQ}&type=multiple`;
+
+    let query2 = (data) => {
+        if (data.response_code) throw Error('JSON not available');
+        let jsonQ = data.results;
+        questions.unshift(jsonQ[Math.floor(Math.random() * 24)]);
+        setInactiveBtn(btnPlay, false);
+    }
+
     let query = (data) => {
         if (data.response_code) throw Error('API #' + data.response_code);
         questions = data.results;
         qIndex = 1;
         hits = 0;
-        setInactiveBtn(btnPlay, false);
+        fetchAPI(address2, query2);
     };
+
     fetchAPI(address, query);
 }
 
