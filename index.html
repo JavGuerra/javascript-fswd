@@ -33,14 +33,18 @@
                 <br />On this page you can take a fun 10-question quiz to test your knowledge.
             </p>
 
-            <div id="chart"></div>
-
-            <div id="tmeter">
-                <label for="total">Total:</label>
-                <meter id="total" min="0" low="30" optimum="50" high="70" max="100" value="0">0</meter>
+            <h3>~ Statics ~</h3>
+            <div id="statistics">
+                <div id="chart"></div>
+                <div id="tablemeter">
+                    <div id="table"></div>
+                    <div id="tmeter">
+                        <label for="total">Total:</label>
+                        <meter id="total" min="0" low="30" optimum="50" high="70" max="100" value="0">0</meter>
+                    </div>
+                </div>
             </div>
-            
-            <div id="table"></div>
+            <p id="nothing"><strong>Nothing to show yet.</strong><br />Your statistics will be available with each new game.</p>
 
             <div><button id="play">Play</button></div>
         </section>
@@ -105,7 +109,7 @@
 
     <dialog id="error" role="alertdialog" aria-labelledby="title" aria-describedby="errMsg">
         <div role="document" tabindex="0">
-            <h2 id="title">Attention!</h2>
+            <h3 id="title">Attention!</h3>
             <p id="errMsg"></p>
             <button id="ok">OK</button>
         </div>

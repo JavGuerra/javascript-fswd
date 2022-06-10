@@ -11,7 +11,7 @@
 }
 
 body {
-  margin: 0.5em auto;
+  margin: .5em auto;
   width: 95%;
   text-align: center;
   background: #daeaf3 url(../img/beach.png) center/cover no-repeat fixed;
@@ -38,35 +38,42 @@ h1 {
 h2 {
   font-family: "MelodySummer", Helvetica, Arial, sans-serif;
   font-size: 3em;
-  margin: 0.1em 0;
+  margin: .1em 0;
   color: MediumSeaGreen;
+}
+
+h3 {
+  font-family: "SummerSplash", Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  color: MediumSeaGreen;
+  margin-bottom: 0;
 }
 
 button {
   font-family: "SummerSplash", Helvetica, Arial, sans-serif;
   padding: 1em;
-  margin: 0.75em 0.5em 0.75em;
+  margin: .75em .5em .75em;
   width: 150px;
   font-size: 1em;
   font-variant: small-caps;
   letter-spacing: 1pt;
   border: none;
-  border-radius: 0.25em;
+  border-radius: .25em;
   background-color: MediumSeaGreen;
   color: white;
   cursor: pointer;
-  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.22);
-  transition: 0.3s;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,.22);
+  transition: .3s;
   user-select: none;
 }
 
 button:hover {
   background-color: LimeGreen;
-  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 rgba(0,0,0,0.22);
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, .15), inset 0 -3px 0 rgba(0,0,0,.22);
 }
 
 main {
-  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, .15);
 }
 
 button:disabled {
@@ -76,7 +83,7 @@ button:disabled {
 }
 
 button:disabled:hover {
-  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.22);
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,.22);
 }
 
 header img {
@@ -84,13 +91,13 @@ header img {
   max-width: 64px;
   height: auto;
   vertical-align: middle;
-  padding-bottom: 0.25em;
+  padding-bottom: .25em;
 }
 
 main {
   padding: 1em;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, .8);
+  border-radius: .5em;
 }
 
 #quiz,
@@ -98,18 +105,42 @@ main {
   display: none;
 }
 
+#statistics {
+  width: 80%;
+  margin: 1em auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1em 2em;
+}
+
+#chart {
+  margin-top: .5em;
+  flex: 1 45%;
+}
+
+#chart svg {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+#nothing {
+  margin: -1em 1em 1.5em;
+}
+
 #score {
   width: 290px;
   margin: 150px auto 2em;
-  padding-bottom: 0.4em;
+  padding-bottom: .4em;
   background-color: #daeaf3;
   border-radius: 7px;
-  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.22);
-  animation: fadeIn linear 0.3s;
-  -webkit-animation: fadeIn linear 0.3s;
-  -moz-animation: fadeIn linear 0.3s;
-  -o-animation: fadeIn linear 0.3s;
-  -ms-animation: fadeIn linear 0.3s;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,.22);
+  animation: fadeIn linear .3s;
+  -webkit-animation: fadeIn linear .3s;
+  -moz-animation: fadeIn linear .3s;
+  -o-animation: fadeIn linear .3s;
+  -ms-animation: fadeIn linear .3s;
 }
 
 @keyframes fadeIn {
@@ -146,7 +177,7 @@ main {
 
 #score p {
   margin-top: 0;
-  margin-bottom: 0.5em;
+  margin-bottom: .5em;
   font-family: "SummerSplash", Helvetica, Arial, sans-serif;
   font-size: 1.5em;
   color: DarkOrange;
@@ -158,7 +189,7 @@ main {
   padding-left: 3em;
   padding-right: 3em;
   border-radius: 1em;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  box-shadow: rgba(0, 0, 0, .25) 0px 25px 50px -12px;
 }
 
 #error div {
@@ -173,12 +204,12 @@ main {
 }
 
 #error h2 {
-  margin-top: 0.75em;
+  margin-top: .75em;
 }
 
 #ok {
-  margin: 1.5em 0 0.75em;
-  padding: 0.75em 2em 0.5em;
+  margin: 1.5em 0 .75em;
+  padding: .75em 2em .5em;
   border: none;
   border-radius: 22px;
   text-transform: uppercase;
@@ -251,31 +282,35 @@ footer {
   right: 0;
 }
 
+#tablemeter {
+  flex: 1 45%;
+}
+
 #scoresTable {
   width: 250px;
-  margin: 2em auto 1em;
+  margin: 1em auto 1em;
   border-collapse: collapse;
-  font-size: 0.75em;
+  font-size: .75em;
 }
 
 #scoresTable table,
 #scoresTable tr,
 #scoresTable th,
 #scoresTable td {
-  padding: 0.25em 0.5em;
-  border: 2px solid LightSeaGreen;
+  padding: .25em .5em;
+  border: 2px solid MediumSeaGreen;
 }
 
 #scoresTable th {
   font-variant: small-caps;
-  color: SeaGreen;
+  color: MediumSeaGreen;
   background-color: HoneyDew;
 }
 
 label[for=total],
-label[for=numQuestions] {
+label[for=numQ] {
   font-variant: small-caps;
-  color: SeaGreen;
+  color: MediumSeaGreen;
 }
 
 #numQ {
@@ -305,16 +340,16 @@ form[name="quizForm"] div {
   text-align: center;
   padding: 1em;
   cursor: pointer;
-  border-radius: 0.25em;
+  border-radius: .25em;
   background: PeachPuff;
-  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.22);
-  transition: 0.3s;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,.22);
+  transition: .3s;
   user-select: none;
 }
 
 .button-label:hover {
   background: BlanchedAlmond;
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.15), inset 0 -3px 0 rgba(0,0,0,0.22);
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .15), inset 0 -3px 0 rgba(0,0,0,.22);
 }
 
 input:checked + .button-label {
@@ -334,7 +369,7 @@ input:checked + .button-label:hover {
 .box {
   margin: 50px auto .5em;
   width: 80%;
-  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.22);
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,.22);
 }
 
 .box2 {

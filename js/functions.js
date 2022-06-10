@@ -1,7 +1,7 @@
-let counterUrl = 'https://javguerra.github.io/javascript-fswd/assets/img/counter.svg';
 let chartUrl = 'https://javguerra.github.io/javascript-fswd/assets/img/linechart.svg';
+let counterUrl = 'https://javguerra.github.io/javascript-fswd/assets/img/counter.svg';
 
-let elHand, elLine;
+let elLine, elHand;
 let spins = areSpins = 0;
 
 const elDialog = el('#error' );
@@ -10,8 +10,8 @@ const btnOK    = el('#ok'    );
 const elZone   = el('#zone'  );
 const elTotal  = el('#total' );
 const elNumQ   = el('#numQ'  );
-const counter  = el('#counter');
 const chart    = el('#chart' );
+const counter  = el('#counter');
 
 btnOK.onclick = closeDialog;
 
@@ -70,14 +70,14 @@ function createTable(parent, id, headers, footers = null) {
  * @param {String} address to API
  * @param {function} callback to be executed
  */
-function fetchAPI(address, callback) {
+function fetchAPI(address, _callback) {
     setSpin(true);
     fetch(address)
         .then(response => {
             if (!response.ok) throw Error(response.statusText);
             return response.json();
         })
-        .then(data => callback(data))
+        .then(data => _callback(data))
         .catch(err => {openDialog(err); console.log(err)})
         .finally(setSpin(false));
 }
@@ -227,7 +227,20 @@ function decodeHTMLEntities(str) {
 /**
  * Loads the SVGs that will be embedded in the HTML
  */
-function loadSvgImages() {
+function initialise(_callback) {
+    setSpin(true);
+    fetch(chartUrl)
+        .then(response => {
+            if (!response.ok) throw Error(response.statusText);
+            return response.text()})
+        .then(xml => {
+            chart.innerHTML = xml;
+            elLine = el('#theline');
+            _callback();
+        })
+        .catch(err => {openDialog(err); console.log(err)})
+        .finally(setSpin(false));
+
     setSpin(true);
     fetch(counterUrl)
         .then(response => {
@@ -239,18 +252,6 @@ function loadSvgImages() {
         })
         .catch(err => {openDialog(err); console.log(err)})
         .finally(setSpin(false));
-
-        setSpin(true);
-        fetch(chartUrl)
-            .then(response => {
-                if (!response.ok) throw Error(response.statusText);
-                return response.text()})
-            .then(xml => {
-                chart.innerHTML = xml;
-                elLine = el('#theline');
-            })
-            .catch(err => {openDialog(err); console.log(err)})
-            .finally(setSpin(false));
 }
 
 /**

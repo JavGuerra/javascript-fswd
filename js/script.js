@@ -3,6 +3,7 @@ let numQ  = 10;     // Number of total questions per quiz
 let hits  = 0;      // Hist in a quiz
 let scores = [];    // List of scores
 let numScores = 5;  // Number of scores to be displayed
+let yChart = [];    // List of chart ordinates     
 let questions = []; // The quiz questions
 let question = {};  // Selected question and answers
 let qIndex = 1;     // Actual Q&A order number
@@ -19,6 +20,7 @@ const elHits    = el('#hits'   );
 const elCatego  = el('#catego' );
 const elDiffic  = el('#diffic' );
 const elQuesti  = el('#questi' );
+const elNothing = el('#nothing');
 
 const btnOpt1   = el('#opt1'   );
 const btnOpt2   = el('#opt2'   );
@@ -38,10 +40,11 @@ btnPlay.onclick  = play;
 btnStart.onclick = start;
 btnSend.onclick  = event => checkAnswer(event);
 
-loadSvgImages();
 setInactiveBtn(btnPlay, true);
-if(localStorage.scores) showScores();
-else hideScores();
+hideScores();
+initialise(() => {
+    if(localStorage.scores) showScores();
+});
 getQuiz();
 
 /**
@@ -84,19 +87,28 @@ function start() {
 function showScores() {
     let tbody, tr;
     let value = available = percent = 0;
-    setSpin(true);
+    yChart = [];
+    setChartLine();
+    showEl(elNothing, false);
     showEl(elTmeter, true);
+    showEl(chart, true);
+    setSpin(true);
 
     scores = JSON.parse(localStorage.scores);
 
-    tbody = createTable(elTable, 'scoresTable', ['Hits', 'Date & Time']);
-    scores.slice(-numScores).reverse().forEach(score => {
+    tbody = createTable(elTable, 'scoresTable', ['#', 'Hits', 'Date & Time']);
+    scores.slice(-numScores).reverse().forEach((score, i) => {
         tr = createEl(tbody, 'tr');
-        createEl(tr, 'td', score.hits.toString());
+        createEl(tr, 'td', i + 1);
+        createEl(tr, 'th', score.hits.toString());
         createEl(tr, 'td', score.dateTime);
+        yChart.push(score.hits);
         value += score.hits;
         available++;
     })
+
+    setChartLine(yChart.reverse());
+
     percent = setMeter(value, range, numScores, available);
 
     setSpin(false);
@@ -108,6 +120,7 @@ function showScores() {
 function hideScores() {
     elTable.innerHTML = '';
     showEl(elTmeter, false);
+    showEl(chart, false);
 }
 
 /**
