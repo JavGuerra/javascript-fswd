@@ -70,12 +70,12 @@ function createTable(parent, id, headers, footers = null) {
  * @param {String} address to API
  * @param {function} callback to be executed
  */
-function fetchAPI(address, _callback) {
+function fetchAPI(address, _callback, type = 'json') {
     setSpin(true);
     fetch(address)
         .then(response => {
             if (!response.ok) throw Error(response.statusText);
-            return response.json();
+            return type == 'json' ? response.json() : response.text();
         })
         .then(data => _callback(data))
         .catch(err => {openDialog(err); console.log(err)})
@@ -226,32 +226,23 @@ function decodeHTMLEntities(str) {
 
 /**
  * Loads the SVGs that will be embedded in the HTML
+ * @param {function} _callback initial actions
  */
 function initialise(_callback) {
-    setSpin(true);
-    fetch(chartUrl)
-        .then(response => {
-            if (!response.ok) throw Error(response.statusText);
-            return response.text()})
-        .then(xml => {
-            chart.innerHTML = xml;
-            elLine = el('#theline');
-            _callback();
-        })
-        .catch(err => {openDialog(err); console.log(err)})
-        .finally(setSpin(false));
+    let query;
 
-    setSpin(true);
-    fetch(counterUrl)
-        .then(response => {
-            if (!response.ok) throw Error(response.statusText);
-            return response.text()})
-        .then(xml => {
-            counter.innerHTML = xml;
-            elHand = el('#hand');
-        })
-        .catch(err => {openDialog(err); console.log(err)})
-        .finally(setSpin(false));
+    query = (xml) => {
+        chart.innerHTML = xml;
+        elLine = el('#theline');
+        _callback();
+    }
+    fetchAPI(chartUrl, query, 'text');
+
+    query = (xml) => {
+        counter.innerHTML = xml;
+        elHand = el('#hand');
+    }
+    fetchAPI(counterUrl, query, 'text');
 }
 
 /**

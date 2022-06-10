@@ -42,9 +42,7 @@ btnSend.onclick  = event => checkAnswer(event);
 
 setInactiveBtn(btnPlay, true);
 hideScores();
-initialise(() => {
-    if(localStorage.scores) showScores();
-});
+initialise(() => {if(localStorage.scores) showScores()});
 getQuiz();
 
 /**
