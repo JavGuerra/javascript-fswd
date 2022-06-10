@@ -246,6 +246,17 @@ function initialise(_callback) {
 }
 
 /**
+ * Sets the values of the line chart
+ * @param {Array} ordinates hits
+ */
+function setChartLine(ordinates = []) {
+    let i, ord, numOrd = ordinates.length;
+    if(numOrd < 5) for (i = 0; i < 5 - numOrd; i++) ordinates.unshift(0);
+    ord = ordinates.slice(-5).map(x => 73 - x * 7.1);
+    elLine.setAttribute('points', `11 ${ord[0]} 33.5 ${ord[1]} 56 ${ord[2]} 78.5 ${ord[3]} 101 ${ord[4]}`);
+}
+
+/**
  *  Sets the hand of the counter to the indicated position according to 'hits'
  * @param {Number} hits
  */
@@ -264,15 +275,4 @@ function initialise(_callback) {
         '0 .28946 -.28839 0 244.42 126.23'
     ]
     elHand.setAttribute('transform', `matrix(${handPosition[hits]})`);
-}
-
-/**
- * Sets the values of the line chart
- * @param {Array} ordinates hits
- */
-function setChartLine(ordinates = []) {
-    let i, ord, numOrd = ordinates.length;
-    if(numOrd < 5) for (i = 0; i < 5 - numOrd; i++) ordinates.unshift(0);
-    ord = ordinates.slice(-5).map(x => 73 - x * 7.1);
-    elLine.setAttribute('points', `11 ${ord[0]} 33.5 ${ord[1]} 56 ${ord[2]} 78.5 ${ord[3]} 101 ${ord[4]}`);
 }
