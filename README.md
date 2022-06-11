@@ -25,3 +25,10 @@ About the source code: [GNU GENERAL PUBLIC LICENSE Version 3](LICENSE)
 About the website's own content: [(CC) BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/es/)
 
 We use the Question API: [Open Trivia DB](https://opentdb.com/)
+
+## Read more
+
+Informative articles related to this page (_in spanish_):
+
+* [Spinner loader asíncrono](https://javguerra.github.io/2022-05-30-spinner-loader-asincrono/)
+* [Contador de resultados](https://javguerra.github.io/2022-06-04-contador-resultados/)
