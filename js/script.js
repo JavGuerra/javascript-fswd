@@ -7,8 +7,9 @@ let yChart = [];    // List of chart ordinates
 let questions = []; // The quiz questions
 let question = {};  // Selected question and answers
 let qIndex = 1;     // Actual Q&A order number
-let cards = [0, 1, 2, 3]; // Where questions are mixed 
+let cards = [0, 1, 2, 3]; // Where answers are mixed 
 
+// We ask for the numQ minus one, which we will get apart from the JSON
 let address  = `https://opentdb.com/api.php?amount=${numQ - 1}&type=multiple`;
 let address2 = 'https://javguerra.github.io/javascript-fswd/js/questions.json';
 
@@ -52,7 +53,7 @@ getQuiz();
  * Start the quiz
  */
 function play() {
-    window.scroll(0,0);
+    window.scroll(0, 0);
     setProgress(numQ, 0);
     setInactiveBtn(btnSend, true);
     showEl(elWelcome, false);
@@ -75,7 +76,7 @@ function end() {
  * Start the game again
  */
 function start() {
-    window.scroll(0,0);
+    window.scroll(0, 0);
     setInactiveBtn(btnPlay, true);
     hideScores();
     showEl(elResult, false);
@@ -112,7 +113,7 @@ function showScores() {
 
     setChartLine(yChart.reverse());
 
-    percent = setMeter(value, range, numScores, available);
+    setMeter(value, range, numScores, available);
 
     setSpin(false);
 }
@@ -148,18 +149,20 @@ function saveScore() {
  */
 function getQuiz() {
 
+    // Gets one question from the JSON
     let query2 = (data) => {
         if (data.response_code) throw Error('JSON not available');
         questions.unshift(data.results[Math.floor(Math.random() * 24)]);
         setInactiveBtn(btnPlay, false);
     }
 
+    // Gets the questions (minus one) from the API
     let query = (data) => {
         if (data.response_code) throw Error('API #' + data.response_code);
         questions = data.results;
         qIndex = 1;
         hits = 0;
-        fetchAPI(address2, query2);
+        fetchAPI(address2, query2); // Yes! A typical Pyramid of Doom!
     };
 
     fetchAPI(address, query);
@@ -195,12 +198,12 @@ function askQuestion() {
  * @param {event} event prevent
  */
 function checkAnswer(event) {
-    event.preventDefault();
+    event.preventDefault(); // Firefox needs you!
     setInactiveBtn(btnSend, true);
     
     if (!el('input[name="opt"]:checked')) openDialog('Select an option');
     else {
-        window.scroll(0,0);
+        window.scroll(0, 0);
 
         if (form.opt.value == 0) hits++;
 

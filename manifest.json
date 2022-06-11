@@ -1,7 +1,7 @@
 {
   "name": "Summer Quiz",
   "short_name": "Quiz",
-  "description": "Final practice of the advanced JavaScript module",
+  "description": "Fun 10-question quiz to test your knowledge.",
   "lang": "es",
   "start_url": "index.html",
   "display": "fullscreen",

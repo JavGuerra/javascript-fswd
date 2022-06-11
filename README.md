@@ -2,6 +2,12 @@
 
 # Summer Quiz
 
+## The Quiz
+
+Fun 10-question quiz to test your knowledge.
+
+## About
+
 __Final practice of the advanced JavaScript module.__  
 GitHub repo: [JavGuerra/javascript-fswd](https://javguerra.github.io/javascript-fswd/)  
 
@@ -10,6 +16,8 @@ By:  __Alejandro Rodríguez__ & __Javier Guerra__
 ## Website
 
 [Go to the practice website](https://javguerra.github.io/javascript-fswd/)
+
+![QR code](assets/img/qrcode.svg)
 
 ## Licences
 

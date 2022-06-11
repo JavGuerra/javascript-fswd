@@ -68,7 +68,8 @@ function createTable(parent, id, headers, footers = null) {
 /**
  * Queries the API on the given address and executes the callback function
  * @param {String} address to API
- * @param {function} callback to be executed
+ * @param {Function} _callback to be executed
+ * @param {String} type of data (optional)
  */
 function fetchAPI(address, _callback, type = 'json') {
     setSpin(true);
@@ -231,6 +232,7 @@ function decodeHTMLEntities(str) {
 function initialise(_callback) {
     let query;
 
+    // Get Line Chart SVG
     query = (xml) => {
         chart.innerHTML = xml;
         elLine = el('#theline');
@@ -238,6 +240,7 @@ function initialise(_callback) {
     }
     fetchAPI(chartUrl, query, 'text');
 
+    // Get Counter SVG
     query = (xml) => {
         counter.innerHTML = xml;
         elHand = el('#hand');
@@ -246,7 +249,7 @@ function initialise(_callback) {
 }
 
 /**
- * Sets the values of the line chart
+ * Sets the values of the line in line chart
  * @param {Array} ordinates hits
  */
 function setChartLine(ordinates = []) {
