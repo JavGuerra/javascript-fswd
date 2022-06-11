@@ -571,8 +571,8 @@ input:checked + .button-label:hover {
   }
 
   .box2 img {
-    max-width: 100px;
-    margin-right: 0.5em;
+    max-width: 90px;
+    margin-right: .5em;
   }
 
   .box3 img {
