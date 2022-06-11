@@ -127,7 +127,7 @@ main {
 }
 
 #theline {
-  animation: elevator 1s ease;
+  animation: elevator .7s ease;
 }
 
 @keyframes elevator {
@@ -333,7 +333,7 @@ footer {
 #scoresTable th,
 #scoresTable td {
   padding: 0.25em 0.5em;
-  border: 2px solid MediumSeaGreen;
+  border: 1px solid MediumSeaGreen;
 }
 
 #scoresTable th {
