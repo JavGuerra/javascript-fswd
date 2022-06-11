@@ -4,14 +4,14 @@ let counterUrl = 'https://javguerra.github.io/javascript-fswd/assets/img/counter
 let elLine, elHand;
 let spins = areSpins = 0;
 
-const elDialog = el('#error' );
-const elErrMsg = el('#errMsg');
-const btnOK    = el('#ok'    );
-const elZone   = el('#zone'  );
-const elTotal  = el('#total' );
-const elNumQ   = el('#numQ'  );
-const chart    = el('#chart' );
-const counter  = el('#counter');
+const elDialog  = el('#error'  );
+const elErrMsg  = el('#errMsg' );
+const btnOK     = el('#ok'     );
+const elZone    = el('#zone'   );
+const elAverage = el('#average');
+const elNumQ    = el('#numQ'   );
+const chart     = el('#chart'  );
+const counter   = el('#counter');
 
 btnOK.onclick = closeDialog;
 
@@ -174,12 +174,12 @@ function setMeter(value, range, numScores, available) {
     else max = numScores;
     max = range * max;
     percent = (value * 100 / max);
-    elTotal.setAttribute('value', value);
-    elTotal.setAttribute('max', max);
-    elTotal.setAttribute('high', max * .8);
-    elTotal.setAttribute('optimum', max * .5);
-    elTotal.setAttribute('low', max *.2);
-    elTotal.textContent = percent + '%'; 
+    elAverage.setAttribute('value', value);
+    elAverage.setAttribute('max', max);
+    elAverage.setAttribute('high', max * .8);
+    elAverage.setAttribute('optimum', max * .5);
+    elAverage.setAttribute('low', max *.2);
+    elAverage.textContent = percent + '%'; 
     return percent;  
 }
 

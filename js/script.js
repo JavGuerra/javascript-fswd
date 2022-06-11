@@ -52,6 +52,7 @@ getQuiz();
  * Start the quiz
  */
 function play() {
+    window.scroll(0,0);
     setProgress(numQ, 0);
     setInactiveBtn(btnSend, true);
     showEl(elWelcome, false);
@@ -74,6 +75,7 @@ function end() {
  * Start the game again
  */
 function start() {
+    window.scroll(0,0);
     setInactiveBtn(btnPlay, true);
     hideScores();
     showEl(elResult, false);
