@@ -125,6 +125,19 @@ main {
   height: auto;
 }
 
+#theline {
+  animation: elevator 1s ease;
+}
+
+@keyframes elevator {
+  0% {
+    transform: translateY(92%) scaleY(0);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+}
+
 #nothing {
   margin: -1em 1em 1.5em;
 }
