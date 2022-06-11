@@ -375,7 +375,7 @@ form[name="quizForm"] div {
   text-align: center;
   padding: 1em;
   cursor: pointer;
-  border-radius: 0.25em;
+  border-radius: .5em;
   background: PeachPuff;
   color: FireBrick;
   box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.22);
