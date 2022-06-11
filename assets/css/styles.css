@@ -392,6 +392,8 @@ form[name="quizForm"] div {
 input:checked + .button-label {
   background: Salmon;
   color: white;
+  text-shadow: 1px 1px 0px FireBrick;
+  font-weight: bold;
 }
 
 input:checked + .button-label:hover {
