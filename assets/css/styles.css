@@ -127,7 +127,7 @@ main {
 }
 
 #theline {
-  animation: elevator .7s ease;
+  animation: elevator 0.7s ease;
 }
 
 @keyframes elevator {
@@ -375,7 +375,7 @@ form[name="quizForm"] div {
   text-align: center;
   padding: 1em;
   cursor: pointer;
-  border-radius: .5em;
+  border-radius: 0.5em;
   background: PeachPuff;
   color: FireBrick;
   box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.22);
@@ -575,7 +575,7 @@ input:checked + .button-label:hover {
 
   .box2 img {
     max-width: 90px;
-    margin-right: .5em;
+    margin-right: 0.5em;
   }
 
   .box3 img {
