@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" />
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -24,90 +24,92 @@
         <h1><img src="assets/img/logo.svg" alt="Sun logo" /> Summer&nbsp;Quiz</h1>
     </header>
 
-    <main role="region" aria-live="polite">
-        <section id="welcome">
-            <h2>Welcome</h2>
+    <main>
+        <div role="region" aria-live="polite" aria-label="Everything happens here ;)">
+            <section id="welcome">
+                <h2>Welcome</h2>
 
-            <p class="box">
-                <img class="anime" src="assets/img/crabs.svg" alt="Cartoon crabs" />
-                <br />On this page you can take a fun 10-question quiz to test your knowledge.
-            </p>
+                <p class="box">
+                    <img class="anime" src="assets/img/crabs.svg" alt="Cartoon crabs" />
+                    <br />On this page you can take a fun 10-question quiz to test your knowledge.
+                </p>
 
-            <h3>~ Statics ~</h3>
-            <div id="statistics">
-                <div id="chart"></div>
-                <div id="tablemeter">
-                    <div id="table"></div>
-                    <div id="tmeter">
-                        <label for="average">Average:</label>
-                        <meter id="average" min="0" low="30" optimum="50" high="70" max="100" value="0">0</meter>
+                <h3>~ Statics ~</h3>
+                <div id="statistics">
+                    <div id="chart"></div>
+                    <div id="tablemeter">
+                        <div id="table"></div>
+                        <div id="tmeter">
+                            <label for="average">Average:</label>
+                            <meter id="average" min="0" low="30" optimum="50" high="70" max="100" value="0">0</meter>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <p id="nothing">
-                <strong>Nothing to show yet.</strong><br />
-                Your statistics will be available with each new game.
-            </p>
+                <p id="nothing">
+                    <strong>Nothing to show yet.</strong><br />
+                    Your statistics will be available with each new game.
+                </p>
 
-            <div><button id="play">Play</button></div>
-        </section>
+                <div><button id="play">Play</button></div>
+            </section>
 
-        <section id="quiz">
-            <h2>Quiz</h2>
+            <section id="quiz">
+                <h2>Quiz</h2>
 
-            <div class="box2">
-                <img class="anime" src="assets/img/starfish.svg" alt="Cartoon starfish" />
-                <span id="questi"></span>
-            </div>
-
-            <div id="info">
-                <p>Difficulty: <span id="diffic"></span></p>
-                <p>Category: <span id="catego"></span></p>
-            </div>
-
-            <form name="quizForm" action="#" method="get">
-                <div>
-                    <input class="hidden" type="radio" id="opt1" name="opt" value="0" />
-                    <label class="button-label" for="opt1">Option 1</label>
-                </div>
-                <div>
-                    <input class="hidden" type="radio" id="opt2" name="opt" value="0" />
-                    <label class="button-label" for="opt2">Option 2</label>
-                </div>
-                <div>
-                    <input class="hidden" type="radio" id="opt3" name="opt" value="0" />
-                    <label class="button-label" for="opt3">Option 3</label>
-                </div>
-                <div>
-                    <input class="hidden" type="radio" id="opt4" name="opt" value="0" />
-                    <label class="button-label" for="opt4">Option 4</label>
+                <div class="box2">
+                    <img class="anime" src="assets/img/starfish.svg" alt="Cartoon starfish" />
+                    <span id="questi"></span>
                 </div>
 
-                <div><button id="send">Send</button></div>
-            </form>
+                <div id="info">
+                    <p>Difficulty: <span id="diffic"></span></p>
+                    <p>Category: <span id="catego"></span></p>
+                </div>
 
-            <div>
-                <label for="numQ">Progress:</label>
-                <progress id="numQ" max="10" value="0">0%</progress>
-            </div>
-        </section>
+                <form name="quizForm" action="#" method="get">
+                    <div>
+                        <input class="hidden" type="radio" id="opt1" name="opt" value="0" />
+                        <label class="button-label" for="opt1">Option 1</label>
+                    </div>
+                    <div>
+                        <input class="hidden" type="radio" id="opt2" name="opt" value="0" />
+                        <label class="button-label" for="opt2">Option 2</label>
+                    </div>
+                    <div>
+                        <input class="hidden" type="radio" id="opt3" name="opt" value="0" />
+                        <label class="button-label" for="opt3">Option 3</label>
+                    </div>
+                    <div>
+                        <input class="hidden" type="radio" id="opt4" name="opt" value="0" />
+                        <label class="button-label" for="opt4">Option 4</label>
+                    </div>
 
-        <section id="result">
-            <h2>Result</h2>
-            <div id="score">
+                    <div><button id="send">Send</button></div>
+                </form>
 
-                <div id="counter"></div>
+                <div>
+                    <label for="numQ">Progress:</label>
+                    <progress id="numQ" max="10" value="0">0%</progress>
+                </div>
+            </section>
 
-                <p>Has <span id="hits">0</span> out of &nbsp;10 hits</p>
-            </div>
+            <section id="result">
+                <h2>Result</h2>
+                <div id="score">
 
-            <p class="box3">
-                <img class="anime" src="assets/img/fish.svg" alt="Cartoon fish" />
-                <br />Do you want to try again?
-            </p>
+                    <div id="counter"></div>
 
-            <div><button id="start">Start</button></div>
-        </section>
+                    <p>Has <span id="hits">0</span> out of &nbsp;10 hits</p>
+                </div>
+
+                <p class="box3">
+                    <img class="anime" src="assets/img/fish.svg" alt="Cartoon fish" />
+                    <br />Do you want to try again?
+                </p>
+
+                <div><button id="start">Start</button></div>
+            </section>
+        </div>
     </main>
 
     <dialog id="error" role="alertdialog" aria-labelledby="title" aria-describedby="errMsg">
