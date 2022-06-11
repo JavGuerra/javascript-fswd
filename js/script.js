@@ -35,10 +35,10 @@ const btnPlay   = el('#play'   );
 const btnSend   = el('#send'   );
 const btnStart  = el('#start'  );
 
-btnOpt1.onclick  = () => setInactiveBtn(btnSend, false);
-btnOpt2.onclick  = () => setInactiveBtn(btnSend, false);
-btnOpt3.onclick  = () => setInactiveBtn(btnSend, false);
-btnOpt4.onclick  = () => setInactiveBtn(btnSend, false);
+btnOpt1.onclick = () => setInactiveBtn(btnSend, false);
+btnOpt2.onclick = () => setInactiveBtn(btnSend, false);
+btnOpt3.onclick = () => setInactiveBtn(btnSend, false);
+btnOpt4.onclick = () => setInactiveBtn(btnSend, false);
 
 btnPlay.onclick  = play;
 btnStart.onclick = start;
@@ -90,7 +90,7 @@ function start() {
  */
 function showScores() {
     let tbody, tr;
-    let value = available = percent = 0;
+    let value = available = 0;
     yChart = [];
     setChartLine();
     showEl(elNothing, false);
