@@ -436,13 +436,14 @@ input:checked + .button-label:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .box2 span {
   font-weight: bold;
   color: DarkGoldenrod;
   background-color: LemonChiffon;
-  padding: 1em;
+  padding: 1.2em;
   border: 2px solid yellow;
   border-radius: 1em;
   flex: 1 95%;

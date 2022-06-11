@@ -150,8 +150,7 @@ function getQuiz() {
 
     let query2 = (data) => {
         if (data.response_code) throw Error('JSON not available');
-        let jsonQ = data.results;
-        questions.unshift(jsonQ[Math.floor(Math.random() * 24)]);
+        questions.unshift(data.results[Math.floor(Math.random() * 24)]);
         setInactiveBtn(btnPlay, false);
     }
 
@@ -199,7 +198,7 @@ function checkAnswer(event) {
     event.preventDefault();
     setInactiveBtn(btnSend, true);
     
-    if (!el('input[name="opt"]:checked')) openDialog('Seleccione una opción');
+    if (!el('input[name="opt"]:checked')) openDialog('Select an option');
     else {
         window.scroll(0,0);
 
