@@ -101,7 +101,7 @@ function showScores() {
     scores = JSON.parse(localStorage.scores);
 
     tbody = createTable(elTable, 'scoresTable', ['#', 'Hits', 'Date & Time']);
-    scores.slice(-numScores).reverse().forEach((score, i) => {
+    scores.slice(-numScores).forEach((score, i) => {
         tr = createEl(tbody, 'tr');
         createEl(tr, 'td', i + 1);
         createEl(tr, 'th', score.hits.toString());
@@ -111,7 +111,7 @@ function showScores() {
         available++;
     })
 
-    setChartLine(yChart.reverse());
+    setChartLine(yChart);
 
     setMeter(value, range, numScores, available);
 
