@@ -128,7 +128,7 @@ main {
 }
 
 #theline {
-  animation: elevator 0.7s ease;
+  animation: elevator 1s ease;
 }
 
 @keyframes elevator {
