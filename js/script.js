@@ -138,7 +138,7 @@ function saveScore() {
         scores = JSON.parse(localStorage.scores);
     }
     scores.push({'hits': hits, 'dateTime': currentDateTime()});
-    localStorage.setItem('scores', JSON.stringify(scores)); 
+    localStorage.setItem('scores', JSON.stringify(scores.slice(-100))); 
     
     setSpin(false);
     setInactiveBtn(btnStart, false);

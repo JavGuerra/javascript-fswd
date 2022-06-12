@@ -24,6 +24,8 @@ By:  __Alejandro Rodríguez__ & __Javier Guerra__
 About the source code: [GNU GENERAL PUBLIC LICENSE Version 3](LICENSE)  
 About the website's own content: [(CC) BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/es/)
 
+See assets/font/ folder for descriptions of .ttf and .otf font licences.
+
 We use the Question API: [Open Trivia DB](https://opentdb.com/)
 
 ## Read more
