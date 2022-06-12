@@ -34,3 +34,4 @@ Informative articles related to this page (_in spanish_):
 
 * [Spinner loader asíncrono](https://javguerra.github.io/2022-05-30-spinner-loader-asincrono/)
 * [Contador de resultados](https://javguerra.github.io/2022-06-04-contador-resultados/)
+* [Gráfica de lineas dinámica con SVG](https://javguerra.github.io/2022-06-12-grafica-lineas/)
