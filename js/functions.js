@@ -142,6 +142,16 @@ function checkSpin() {
 }
 
 /**
+ * Gets a random integer within the range.
+ * @param {Number} min value of range
+ * @param {Number} max value if range
+ * @returns integer
+ */
+function getRndInt(min, max) {
+    return Math.floor((Math.random() * (max - min + 1)) + min);
+}
+
+/**
  * If the number given is less than 10, add a leading zero
  * @param {Number} number 
  * @returns formatted number

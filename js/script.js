@@ -152,7 +152,7 @@ function getQuiz() {
     // Gets one question from the JSON
     let query2 = (data) => {
         if (data.response_code) throw Error('JSON not available');
-        questions.unshift(data.results[Math.floor(Math.random() * 25)]);
+        questions.unshift(data.results[getRndInt(0, 24)]);
         setInactiveBtn(btnPlay, false);
     }
 
