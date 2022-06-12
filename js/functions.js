@@ -173,7 +173,7 @@ function setMeter(value, range, numScores, available) {
     let max, percent;
     if (available < numScores) max = available;
     else max = numScores;
-    max = range * max;
+    max *= range;
     percent = (value * 100 / max);
     elAverage.setAttribute('value', value);
     elAverage.setAttribute('max', max);
