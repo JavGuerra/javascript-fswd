@@ -177,9 +177,9 @@ function setMeter(value, range, numScores, available) {
     percent = (value * 100 / max);
     elAverage.setAttribute('value', value);
     elAverage.setAttribute('max', max);
-    elAverage.setAttribute('optimum', max * .8);
+    elAverage.setAttribute('optimum', max * .75);
     elAverage.setAttribute('high', max * .5);
-    elAverage.setAttribute('low', max *.2);
+    elAverage.setAttribute('low', max * .25);
     elAverage.textContent = percent + '%'; 
     return percent;  
 }
