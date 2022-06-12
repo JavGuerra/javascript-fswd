@@ -30,6 +30,7 @@ a:hover {
 
 h1 {
   font-family: "SummerSplash", Helvetica, Arial, sans-serif;
+  margin-bottom: 0.4em;
   font-size: 2em;
   color: Gold;
   text-shadow: 3px 3px 0px DarkOrange;
@@ -281,7 +282,7 @@ main {
 }
 
 footer {
-  margin: 2em 0;
+  margin: 1.5em 0 2em;
 }
 
 #github {
@@ -345,10 +346,16 @@ footer {
 label[for="average"],
 label[for="numQ"] {
   font-variant: small-caps;
+  font-size: small;
   color: MediumSeaGreen;
 }
 
+#average {
+  vertical-align: text-bottom;
+}
+
 #numQ {
+  vertical-align: text-bottom;
   margin-top: 1em;
 }
 
@@ -435,7 +442,7 @@ input:checked + .button-label:hover {
 
 .box2 {
   width: 90%;
-  margin: 0.5em auto 0.5em;
+  margin: 1em auto 0.5em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -521,6 +528,7 @@ input:checked + .button-label:hover {
 
   h1 {
     font-size: 2.5em;
+    margin-bottom: 0.25em;
   }
 
   h2 {
@@ -559,7 +567,7 @@ input:checked + .button-label:hover {
   }
 
   .box2 {
-    margin: 1.2em auto 0.25em;
+    margin: 1.75em auto 0.25em;
     flex-wrap: nowrap;
   }
 
