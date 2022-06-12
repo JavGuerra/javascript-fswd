@@ -230,22 +230,17 @@ function decodeHTMLEntities(str) {
  * @param {function} _callback initial actions
  */
 function initialise(_callback) {
-    let query;
-
-    // Get Line Chart SVG
-    query = (xml) => {
+    let requestChart = (xml) => {
         chart.innerHTML = xml;
         elLine = el('#theline');
         _callback();
     }
-    fetchAPI(chartUrl, query, 'text');
-
-    // Get Counter SVG
-    query = (xml) => {
+    fetchAPI(chartUrl, requestChart, 'text');
+    let requestCounter = (xml) => {
         counter.innerHTML = xml;
         elHand = el('#hand');
     }
-    fetchAPI(counterUrl, query, 'text');
+    fetchAPI(counterUrl, requestCounter, 'text');
 }
 
 /**
