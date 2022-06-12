@@ -261,7 +261,8 @@ function setChartLine(ordinates = []) {
     let i, ord, numOrd = ordinates.length;
     if(numOrd < 5) for (i = 0; i < 5 - numOrd; i++) ordinates.push(0);
     ord = ordinates.slice(-5).map(y => 73 - y * 7.1);
-    elLine.setAttribute('points', `11 ${ord[0]} 33.5 ${ord[1]} 56 ${ord[2]} 78.5 ${ord[3]} 101 ${ord[4]}`);
+    elLine.setAttribute('points',
+        `11 ${ord[0]} 33.5 ${ord[1]} 56 ${ord[2]} 78.5 ${ord[3]} 101 ${ord[4]}`);
 }
 
 /**
