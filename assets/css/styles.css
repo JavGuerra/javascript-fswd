@@ -133,7 +133,7 @@ main {
 
 @keyframes elevator {
   0% {
-    transform: translateY(92%) scaleY(0);
+    transform: translateY(73px) scaleY(0);
   }
 
   100% {
