@@ -200,14 +200,16 @@ function checkAnswer(event) {
     event.preventDefault(); // Firefox needs you!
     setInactiveBtn(btnSend, true);
     
-    if (!el('input[name="opt"]:checked')) openDialog('Select an option');
-    else {
+    if (!el('input[name="opt"]:checked')) {
+        openDialog('Select an option');
+    } else {
         window.scroll(0, 0);
 
         if (form.opt.value == 0) hits++;
 
-        if (qIndex == numQ) end();
-        else {
+        if (qIndex == numQ) {
+            end();
+        } else {
             qIndex++;
             askQuestion();
         }
