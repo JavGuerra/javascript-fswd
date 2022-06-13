@@ -25,9 +25,9 @@
       "category": "Shows",
       "type": "multiple",
       "difficulty": "easy",
-      "question": "Which city hosted the Eurovision Contest this year?",
-      "correct_answer": "Ukraine",
-      "incorrect_answers": ["Sweden", "United Kingdom", "Spain"]
+      "question": "Which city hosted the Eurovision Contest in 2022?",
+      "correct_answer": "Turin",
+      "incorrect_answers": ["Rome", "Paris", "Copenhague"]
     },
     {
       "category": "Shows",
@@ -74,7 +74,7 @@
       "type": "multiple",
       "difficulty": "easy",
       "question": "Which of the following countries is not located in Oceania?",
-      "correct_answer": "Nepal",
+      "correct_answer": "Lesotho",
       "incorrect_answers": ["Samoa", "Fiyi", "Tuvalu"]
     },
     {
@@ -82,8 +82,8 @@
       "type": "multiple",
       "difficulty": "easy",
       "question": "What is the smallest country in the world?",
-      "correct_answer": "Ciudad del Vaticano",
-      "incorrect_answers": ["Ruanda", "Liechtestein", "Luxemburgo"]
+      "correct_answer": "Vatican City State",
+      "incorrect_answers": ["Rwanda", "Liechtestein", "Luxembourg"]
     },
     {
       "category": "Geometry",
@@ -125,7 +125,7 @@
       "category": "History",
       "type": "multiple",
       "difficulty": "easy",
-      "question": "Who is the president of USA?",
+      "question": "Which United States president was inaugurated in 2021?",
       "correct_answer": "Joe Biden",
       "incorrect_answers": ["Barack Obama", "George Bush", "Donald Trump"]
     },
@@ -180,7 +180,7 @@
     {
       "category": "Physics",
       "type": "multiple",
-      "difficulty": "easy",
+      "difficulty": "hard",
       "question": "How long does summer take in the North Hemisphere?",
       "correct_answer": "Three months",
       "incorrect_answers": ["One month", "Two months", "Four months"]
