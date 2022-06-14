@@ -92,7 +92,8 @@ function start() {
  */
 function showScores() {
     let tbody, tr;
-    let value = available = 0;
+    let value = 0
+    let avail = 0;
     yChart = [];
     setChartLine();
     showEl(elNothing, false);
@@ -110,12 +111,12 @@ function showScores() {
         createEl(tr, 'td', score.dateTime);
         yChart.push(score.hits);
         value += score.hits;
-        available++;
+        avail++;
     })
 
     setChartLine(yChart);
 
-    setMeter(value, range, numScores, available);
+    setMeter(value, range, numScores, avail);
 
     setSpin(false);
 }
