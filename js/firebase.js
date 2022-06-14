@@ -21,7 +21,6 @@ async function getQuestionFireBase() {
         const refResults = ref(getDatabase(app));
         let rndChild = 'results/' + getRndInt(0, 24);
         const resultado = await get(child(refResults, rndChild));
-        console.log(resultado.val());
         return resultado.val();
     }
     catch (err) {openDialog(err); console.log(err)}      
