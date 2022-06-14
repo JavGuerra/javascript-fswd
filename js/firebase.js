@@ -15,11 +15,11 @@ function initFireBase() {
     return initializeApp(firebaseConfig);
 }
 
-async function getQuestionFireBase() {
+async function getQuestionFireBase(_callback) {
     try {
         const refResults = ref(getDatabase(app));
         const rndChild = 'results/' + getRndInt(0, 24);
-        const resultado = await get(child(refResults, rndChild));
+        let resultado = await get(child(refResults, rndChild));
         return resultado.val();
     }
     catch (err) {openDialog(err); console.log(err)}      
