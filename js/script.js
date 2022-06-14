@@ -92,7 +92,7 @@ function start() {
  */
 function showScores() {
     let tbody, tr;
-    let value = 0
+    let value = 0;
     let avail = 0;
     yChart = [];
     setChartLine();
