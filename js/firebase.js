@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
 import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js";
 const app = initFireBase();
-// let questionFB = await getQuestionFireBase(app);
 
 function initFireBase() {
     const firebaseConfig = {
@@ -19,7 +18,7 @@ function initFireBase() {
 async function getQuestionFireBase() {
     try {
         const refResults = ref(getDatabase(app));
-        let rndChild = 'results/' + getRndInt(0, 24);
+        const rndChild = 'results/' + getRndInt(0, 24);
         const resultado = await get(child(refResults, rndChild));
         return resultado.val();
     }
