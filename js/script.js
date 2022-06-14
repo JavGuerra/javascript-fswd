@@ -1,3 +1,5 @@
+import { getQuestionFireBase } from './firebase.js';
+
 let range = 10;     // Maximum score per quiz
 let numQ  = 10;     // Number of total questions per quiz
 let hits  = 0;      // Hist in a quiz
@@ -148,20 +150,22 @@ function saveScore() {
  * Gets the questions for the Quiz
  */
 function getQuiz() {
-
     // Gets one question from the JSON
-    let query2 = (data) => {
-        questions.unshift(data.results[getRndInt(0, 24)]);
-        setInactiveBtn(btnPlay, false);
-    }
+    //let query2 = (data) => {
+    //    questions.unshift(data.results[getRndInt(0, 24)]);
+    //    setInactiveBtn(btnPlay, false);
+    //}
 
     // Gets the questions (minus one) from the API
-    let query = (data) => {
+    let query = async (data) => {
         if (data.response_code) throw Error('API #' + data.response_code);
         questions = data.results;
         qIndex = 1;
         hits = 0;
-        fetchAPI(address2, query2); // Yes! A typical Pyramid of Doom!
+        //fetchAPI(address2, query2); // Yes! A typical Pyramid of Doom!
+        question = await getQuestionFireBase();
+        questions.unshift(question);
+        setInactiveBtn(btnPlay, false);
     };
 
     fetchAPI(address, query);
