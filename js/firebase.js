@@ -17,9 +17,11 @@ function initFireBase() {
 
 async function getQuestionFireBase(_callback) {
     try {
+        setSpin(true);
         const refResults = ref(getDatabase(app));
         const rndChild = 'results/' + getRndInt(0, 24);
         let resultado = await get(child(refResults, rndChild));
+        setSpin(false);
         return resultado.val();
     }
     catch (err) {openDialog(err); console.log(err)}      
