@@ -20,7 +20,6 @@ async function getQuestionFireBase() {
         setSpin(true);
         const refResults = ref(getDatabase(app));
         const rndChild = 'results/' + getRndInt(0, 24);
-        // Wait for the resolution of the Promise
         let result = await get(child(refResults, rndChild));
         setSpin(false);
         return result.val();
