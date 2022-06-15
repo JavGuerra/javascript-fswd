@@ -15,14 +15,15 @@ function initFireBase() {
     return initializeApp(firebaseConfig);
 }
 
-async function getQuestionFireBase(_callback) {
+async function getQuestionFireBase() {
     try {
         setSpin(true);
         const refResults = ref(getDatabase(app));
         const rndChild = 'results/' + getRndInt(0, 24);
-        let resultado = await get(child(refResults, rndChild));
+        // Wait for the resolution of the Promise
+        let result = await get(child(refResults, rndChild));
         setSpin(false);
-        return resultado.val();
+        return result.val();
     }
     catch (err) {openDialog(err); console.log(err)}      
 }
