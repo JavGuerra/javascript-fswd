@@ -152,10 +152,10 @@ function saveScore() {
  */
 function getQuiz() {
     // Gets one question from the JSON
-    //let query2 = (data) => {
-    //    questions.unshift(data.results[getRndInt(0, 24)]);
-    //    setInactiveBtn(btnPlay, false);
-    //}
+    let query2 = (data) => {
+       questions.unshift(data.results[getRndInt(0, 24)]);
+       setInactiveBtn(btnPlay, false);
+    }
 
     // Gets the questions (minus one) from the API
     let query = async (data) => {
@@ -163,10 +163,10 @@ function getQuiz() {
         questions = data.results;
         qIndex = 1;
         hits = 0;
-        //fetchAPI(address2, query2); // Yes! A typical Pyramid of Doom!
-        question = await getQuestionFireBase();
-        questions.unshift(question);
-        setInactiveBtn(btnPlay, false);
+        fetchAPI(address2, query2); // Yes! A typical Pyramid of Doom!
+        // question = await getQuestionFireBase();
+        // questions.unshift(question);
+        // setInactiveBtn(btnPlay, false);
     };
 
     fetchAPI(address, query);
