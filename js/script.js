@@ -1,19 +1,9 @@
 import { getQuestionFireBase } from './firebase.js';
 
-let range = 10;     // Maximum score per quiz
-let numQ  = 10;     // Number of total questions per quiz
-let hits  = 0;      // Hist in a quiz
-let scores = [];    // List of scores
-let numScores = 5;  // Number of scores to be displayed
-let yChart = [];    // List of chart ordinates     
-let questions = []; // The quiz questions
-let question = {};  // Selected question and answers
+let hits   = 0;     // Hist in a quiz
+let numQ   = 10;    // Number of total questions per quiz
 let qIndex = 1;     // Actual Q&A order number
-let cards = [0, 1, 2, 3]; // Where answers are mixed 
-
-// We ask for the numQ minus one, which we will get apart from the JSON
-let address  = `https://opentdb.com/api.php?amount=${numQ - 1}&type=multiple`;
-let address2 = 'https://javguerra.github.io/javascript-fswd/js/questions.json';
+let questions = []; // The quiz questions
 
 const form = document.quizForm;
 
@@ -33,17 +23,19 @@ const btnOpt2   = el('#opt2'   );
 const btnOpt3   = el('#opt3'   );
 const btnOpt4   = el('#opt4'   );
 
-const btnPlay   = el('#play'   );
-const btnSend   = el('#send'   );
-const btnStart  = el('#start'  );
-
 btnOpt1.onclick = () => setInactiveBtn(btnSend, false);
 btnOpt2.onclick = () => setInactiveBtn(btnSend, false);
 btnOpt3.onclick = () => setInactiveBtn(btnSend, false);
 btnOpt4.onclick = () => setInactiveBtn(btnSend, false);
 
+const btnPlay   = el('#play'   );
+const btnStart  = el('#start'  );
+const btnClose  = el('#close'  );
+const btnSend   = el('#send'   );
+
 btnPlay.onclick  = play;
 btnStart.onclick = start;
+btnClose.onclick = start;
 btnSend.onclick  = event => checkAnswer(event);
 
 setInactiveBtn(btnPlay, true);
@@ -69,7 +61,7 @@ function play() {
 function end() {
     setHand(hits);
     elHits.innerHTML = hits;
-    showEl(elQuiz, false);
+    showEl(elQuiz,  false);
     showEl(elResult, true);
     saveScore();
 }
@@ -81,6 +73,7 @@ function start() {
     window.scroll(0, 0);
     setInactiveBtn(btnPlay, true);
     hideScores();
+    showEl(elQuiz,   false);
     showEl(elResult, false);
     showEl(elWelcome, true);
     showScores();
@@ -94,7 +87,10 @@ function showScores() {
     let tbody, tr;
     let value = 0;
     let avail = 0;
-    yChart = [];
+    let range = 10;    // Maximum score per quiz
+    let numScores = 5; // Number of scores to be displayed  
+    let yChart = [];   // List of chart ordinates
+    let scores = [];
     setChartLine();
     showEl(elNothing, false);
     showEl(elTmeter, true);
@@ -134,6 +130,7 @@ function hideScores() {
  * Saves the score of the completed quiz
  */
 function saveScore() {
+    let scores = [];
     setSpin(true);
     setInactiveBtn(btnStart, true);
 
@@ -151,6 +148,10 @@ function saveScore() {
  * Gets the questions for the Quiz
  */
 function getQuiz() {
+    // We ask for the numQ minus one, which we will get apart from the JSON
+    let address  = `https://opentdb.com/api.php?amount=${numQ - 1}&type=multiple`;
+    let address2 = 'https://javguerra.github.io/javascript-fswd/js/questions.json';
+
     // Gets one question from the JSON
     let query2 = (data) => {
        questions.unshift(data.results[getRndInt(0, 24)]);
@@ -164,7 +165,8 @@ function getQuiz() {
         qIndex = 1;
         hits = 0;
         fetchAPI(address2, query2); // Yes! A typical Pyramid of Doom!
-        // question = await getQuestionFireBase();
+
+        // let question = await getQuestionFireBase();
         // questions.unshift(question);
         // setInactiveBtn(btnPlay, false);
     };
@@ -176,10 +178,10 @@ function getQuiz() {
  * Show a new question
  */
 function askQuestion() {
-    setProgress(numQ, qIndex -1);
-
-    question = questions[qIndex - 1];
+    let question = questions[qIndex - 1];
+    let cards = [0, 1, 2, 3];
     fisherYatesShuffle(cards);
+    setProgress(numQ, qIndex -1);
 
     elCatego.innerHTML = question.category;
     elDiffic.innerHTML = question.difficulty;

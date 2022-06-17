@@ -96,6 +96,15 @@ header img {
   padding-bottom: 0.25em;
 }
 
+#close {
+  float: right;
+  cursor: pointer;
+}
+
+#close:hover {
+  color: black;
+}
+
 main {
   padding: 1em;
   background-color: rgba(255, 255, 255, 0.8);
