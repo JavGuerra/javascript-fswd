@@ -98,6 +98,7 @@ header img {
 
 #close {
   float: right;
+  margin-top: -0.25em;
   cursor: pointer;
 }
 
@@ -610,5 +611,9 @@ input:checked + .button-label:hover {
     margin: 0 auto 2.5em;
     flex-wrap: nowrap;
     justify-content: space-between;
+  }
+
+  #close {
+    margin-top: -0.4em;
   }
 }
