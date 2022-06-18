@@ -76,7 +76,7 @@ function start() {
     showEl(elQuiz,   false);
     showEl(elResult, false);
     showEl(elWelcome, true);
-    showScores();
+    if (localStorage.scores) showScores();
     getQuiz();
 }
 
