@@ -1,8 +1,8 @@
 import { getQuestionFireBase } from './firebase.js';
 
 let hits   = 0;     // Hist in a quiz
-let numQ   = 10;    // Number of total questions per quiz
 let qIndex = 1;     // Actual Q&A order number
+let numQ   = 10;    // Number of total questions per quiz
 let questions = []; // The quiz questions
 
 const form = document.quizForm;
@@ -77,6 +77,8 @@ function start() {
     showEl(elResult, false);
     showEl(elWelcome, true);
     if (localStorage.scores) showScores();
+    hits   = 0;
+    qIndex = 1;
     getQuiz();
 }
 
@@ -162,8 +164,6 @@ function getQuiz() {
     let query = async (data) => {
         if (data.response_code) throw Error('API #' + data.response_code);
         questions = data.results;
-        qIndex = 1;
-        hits = 0;
         fetchAPI(address2, query2); // Yes! A typical Pyramid of Doom!
 
         // let question = await getQuestionFireBase();
