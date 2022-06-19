@@ -182,16 +182,16 @@ function askQuestion() {
     elDiffic.innerHTML = question.difficulty;
     elQuesti.innerHTML = question.question;
 
-    for (let i = 0; i <= 3; i++) {
+    cards.forEach((card, i) => {
         el(`#opt${i + 1}`).checked = false;
-        el(`#opt${i + 1}`).setAttribute('value', cards[i]); 
-        if (cards[i]) {
-            el(`label[for=opt${i + 1}]`).innerHTML = question.incorrect_answers[cards[i] - 1];
+        el(`#opt${i + 1}`).setAttribute('value', card); 
+        if (card) {
+            el(`label[for=opt${i + 1}]`).innerHTML = question.incorrect_answers[card - 1];
         } else {
             el(`label[for=opt${i + 1}]`).innerHTML = question.correct_answer;
             console.log(decodeHTMLEntities(question.correct_answer)); // Did someone ask for help?;
         }
-    }
+    })
 
     setProgress(numQ, qIndex -1);
 }

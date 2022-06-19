@@ -45,16 +45,16 @@ function createTable(parent, id, headers, footers = null) {
     table.setAttribute('id', id);
     thead = createEl(table , 'thead');
     tr    = createEl(thead , 'tr');
-    headers.forEach(header => {
+    for (const header of headers) {
         th = createEl(tr, 'th', header);
         th.setAttribute('scope', 'col');
-    })
+    }
     if (footers) {
         tfoot = createEl(table, 'tfoot');
         tr    = createEl(tfoot, 'tr');
-        footers.forEach(footer => {
+        for (const footer of footers) {
             createEl(tr, 'td', footer);
-        })  
+        } 
     }
     return createEl(table, 'tbody');
 }
