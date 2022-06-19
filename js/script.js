@@ -18,20 +18,20 @@ const elDiffic  = el('#diffic' );
 const elQuesti  = el('#questi' );
 const elNothing = el('#nothing');
 
-const btnOpt1   = el('#opt1'   );
-const btnOpt2   = el('#opt2'   );
-const btnOpt3   = el('#opt3'   );
-const btnOpt4   = el('#opt4'   );
+const btnOpt1   = el('#opt1');
+const btnOpt2   = el('#opt2');
+const btnOpt3   = el('#opt3');
+const btnOpt4   = el('#opt4');
 
 btnOpt1.onclick = () => setInactiveBtn(btnSend, false);
 btnOpt2.onclick = () => setInactiveBtn(btnSend, false);
 btnOpt3.onclick = () => setInactiveBtn(btnSend, false);
 btnOpt4.onclick = () => setInactiveBtn(btnSend, false);
 
-const btnPlay   = el('#play'   );
-const btnStart  = el('#start'  );
-const btnClose  = el('#close'  );
-const btnSend   = el('#send'   );
+const btnPlay   = el('#play' );
+const btnStart  = el('#start');
+const btnClose  = el('#close');
+const btnSend   = el('#send' );
 
 btnPlay.onclick  = play;
 btnStart.onclick = start;
@@ -40,7 +40,7 @@ btnSend.onclick  = event => checkAnswer(event);
 
 setInactiveBtn(btnPlay, true);
 hideScores();
-initialise(() => {if(localStorage.scores) showScores()});
+initialise( () => { if(localStorage.scores) showScores() } );
 getQuiz();
 
 /**
@@ -92,20 +92,19 @@ function showScores() {
     let range = 10;    // Maximum score per quiz
     let numScores = 5; // Number of scores to be displayed  
     let yChart = [];   // List of chart ordinates
-    let scores = [];
     setChartLine();
     showEl(elNothing, false);
     showEl(elTmeter, true);
     showEl(chart, true);
     setSpin(true);
 
-    scores = JSON.parse(localStorage.scores);
+    let scores = JSON.parse(localStorage.scores);
 
     tbody = createTable(elTable, 'scoresTable', ['#', 'Hits', 'Date & Time']);
     scores.slice(-numScores).forEach((score, i) => {
         tr = createEl(tbody, 'tr');
         createEl(tr, 'td', i + 1);
-        createEl(tr, 'th', score.hits.toString());
+        createEl(tr, 'th', score.hits.toString()); // '0'
         createEl(tr, 'td', score.dateTime);
         yChart.push(score.hits);
         value += score.hits;
@@ -136,9 +135,7 @@ function saveScore() {
     setSpin(true);
     setInactiveBtn(btnStart, true);
 
-    if(localStorage.scores) {
-        scores = JSON.parse(localStorage.scores);
-    }
+    if(localStorage.scores) scores = JSON.parse(localStorage.scores);
     scores.push({'hits': hits, 'dateTime': currentDateTime()});
     localStorage.setItem('scores', JSON.stringify(scores.slice(-100))); 
     
@@ -155,17 +152,17 @@ function getQuiz() {
     let address2 = 'https://javguerra.github.io/javascript-fswd/js/questions.json';
 
     // Gets one question from the JSON
-    let query2 = (data) => {
+    let query2 = data => {
        questions.unshift(data.results[getRndInt(0, 24)]);
        setInactiveBtn(btnPlay, false);
-    }
+    };
 
     // Gets the questions (minus one) from the API
-    let query = async (data) => {
+    let query = async data => {
         if (data.response_code) throw Error('API #' + data.response_code);
         questions = data.results;
         fetchAPI(address2, query2); // Yes! A typical Pyramid of Doom!
-
+        // Alt. FireBase:
         // let question = await getQuestionFireBase();
         // questions.unshift(question);
         // setInactiveBtn(btnPlay, false);
@@ -178,10 +175,8 @@ function getQuiz() {
  * Show a new question
  */
 function askQuestion() {
+    let cards = fisherYatesShuffle([0, 1, 2, 3]);
     let question = questions[qIndex - 1];
-    let cards = [0, 1, 2, 3];
-    fisherYatesShuffle(cards);
-    setProgress(numQ, qIndex -1);
 
     elCatego.innerHTML = question.category;
     elDiffic.innerHTML = question.difficulty;
@@ -197,6 +192,8 @@ function askQuestion() {
             console.log(decodeHTMLEntities(question.correct_answer)); // Did someone ask for help?;
         }
     }
+
+    setProgress(numQ, qIndex -1);
 }
 
 /**

@@ -1,7 +1,3 @@
-let chartUrl = 'https://javguerra.github.io/javascript-fswd/assets/img/linechart.svg';
-let counterUrl = 'https://javguerra.github.io/javascript-fswd/assets/img/counter.svg';
-
-let elLine, elHand;
 let spins = areSpins = 0;
 
 const elDialog  = el('#error'  );
@@ -20,9 +16,7 @@ btnOK.onclick = closeDialog;
  * @param {string} el element to be obtained
  * @returns requested element
  */
-function el(el) {
-    return document.querySelector(el);
-}
+function el(el) { return document.querySelector(el) }
 
 /**
  * Creates a new element inside a parent element with or without content
@@ -114,9 +108,7 @@ function openDialog(message) {
 /**
  * Close the modal window
  */
-function closeDialog() {
-    elDialog.close()
-};
+function closeDialog() { elDialog.close() };
 
 /**
  * Enable or disable spin for each asynchronous process
@@ -124,6 +116,7 @@ function closeDialog() {
  */
 function setSpin(status) {
     status ? spins++ : spins--;
+
     if (status && !areSpins) {
         areSpins = setInterval(checkSpin, 300);
         elZone.showModal();
@@ -153,12 +146,10 @@ function getRndInt(min, max) {
 
 /**
  * If the number given is less than 10, add a leading zero
- * @param {Number} number 
+ * @param {Number} n 
  * @returns formatted number
  */
-function twoDigits(number) {
-    return number < 10 ? '0' + number : number;
-}
+function twoDigits(n) { return n < 10 ? '0' + n : n }
 
 /**
  * Gets the current date and time
@@ -181,6 +172,7 @@ function currentDateTime() {
  */
 function setMeter(value, range, numScores, available) {
     let max, percent;
+
     if (available < numScores) max = available;
     else max = numScores;
     max *= range;
@@ -210,12 +202,14 @@ function setProgress(numQ, q) {
 /**
  * Mixes the elements of an Array according to the Fisher-Yates method
  * @param {Array} arr 
+ * @returns array
  */
 function fisherYatesShuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1)); //random index
         [arr[i], arr[j]] = [arr[j], arr[i]]; // swap
     }
+    return arr;
 }
    
 /**
@@ -240,16 +234,12 @@ function decodeHTMLEntities(str) {
  * @param {function} _callback initial actions
  */
 function initialise(_callback) {
-    let requestChart = (xml) => {
-        chart.innerHTML = xml;
-        elLine = el('#theline');
-        _callback();
-    }
+    let chartUrl = 'https://javguerra.github.io/javascript-fswd/assets/img/linechart.svg';
+    let requestChart = xml => {chart.innerHTML = xml; _callback()}
     fetchAPI(chartUrl, requestChart, 'text');
-    let requestCounter = (xml) => {
-        counter.innerHTML = xml;
-        elHand = el('#hand');
-    }
+
+    let counterUrl = 'https://javguerra.github.io/javascript-fswd/assets/img/counter.svg';
+    let requestCounter = xml => counter.innerHTML = xml;
     fetchAPI(counterUrl, requestCounter, 'text');
 }
 
@@ -261,7 +251,7 @@ function setChartLine(ordinates = []) {
     let i, ord, numOrd = ordinates.length;
     if(numOrd < 5) for (i = 0; i < 5 - numOrd; i++) ordinates.push(0);
     ord = ordinates.slice(-5).map(y => 73 - y * 7.1);
-    elLine.setAttribute('points',
+    el('#theline').setAttribute('points',
         `11 ${ord[0]} 33.5 ${ord[1]} 56 ${ord[2]} 78.5 ${ord[3]} 101 ${ord[4]}`);
 }
 
@@ -283,5 +273,5 @@ function setChartLine(ordinates = []) {
         '.089449 .2753 -.27428 .089119 257.71 63.373',
         '0 .28946 -.28839 0 244.42 126.23'
     ]
-    elHand.setAttribute('transform', `matrix(${handPosition[hits]})`);
+    el('#hand').setAttribute('transform', `matrix(${handPosition[hits]})`);
 }
