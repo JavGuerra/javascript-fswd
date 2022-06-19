@@ -48,7 +48,6 @@ getQuiz();
  */
 function play() {
     window.scroll(0, 0);
-    setProgress(numQ, 0);
     setInactiveBtn(btnSend, true);
     showEl(elWelcome, false);
     showEl(elQuiz, true);
@@ -92,11 +91,12 @@ function showScores() {
     let range = 10;    // Maximum score per quiz
     let numScores = 5; // Number of scores to be displayed  
     let yChart = [];   // List of chart ordinates
+
+    setSpin(true);
     setChartLine();
     showEl(elNothing, false);
     showEl(elTmeter, true);
     showEl(chart, true);
-    setSpin(true);
 
     let scores = JSON.parse(localStorage.scores);
 
@@ -110,9 +110,7 @@ function showScores() {
         value += score.hits;
         avail++;
     })
-
     setChartLine(yChart);
-
     setMeter(value, range, numScores, avail);
 
     setSpin(false);
@@ -136,6 +134,7 @@ function saveScore() {
     setInactiveBtn(btnStart, true);
 
     if(localStorage.scores) scores = JSON.parse(localStorage.scores);
+    
     scores.push({'hits': hits, 'dateTime': currentDateTime()});
     localStorage.setItem('scores', JSON.stringify(scores.slice(-100))); 
     
