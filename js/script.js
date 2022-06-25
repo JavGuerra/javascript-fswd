@@ -42,14 +42,14 @@ onAuthStateChanged(auth, (user) => {
         const btnClose  = el('#close');
         const btnSend   = el('#send' );
 
-        const btnSalir = el('#envSalir');
+        const btnExit = el('#sendExit');
 
         btnPlay.onclick  = play;
         btnStart.onclick = start;
         btnClose.onclick = start;
         btnSend.onclick  = event => checkAnswer(event);
 
-        btnSalir.onclick = (event) => logoutUser(event, auth);
+        btnExit.onclick = (event) => logoutUser(event, auth);
 
         setInactiveBtn(btnPlay, true);
         hideScores();
