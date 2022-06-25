@@ -11,7 +11,6 @@ function logoutUser(e, auth) {
   signOut(auth)
     .then(() => {
       console.log('User logged out successfully.');
-      window.location.href = "index.html";
     })
     .catch(err => {
       openDialog('It has not been possible to log out.');

@@ -15,7 +15,7 @@ onAuthStateChanged(auth, (user) => {
 
   if (user && play) {
 
-    window.location.href = "game.html";
+    window.location.href = "./game.html";
 
   } else {
     
