@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "MelodySummer";
+  src: url("../font/Melody\ Summer.ttf") format("truetype");
+}
+
+body {
+  margin: 2em auto;
+  max-width: 50em;
+  text-align: center;
+  background: #daeaf3 url(../img/beach.png) center/cover no-repeat fixed;
+}
+
+h2 {
+  font-family: "MelodySummer", Helvetica, Arial, sans-serif;
+  font-size: 3em !important;
+  margin: 0.5em 0 !important;
+  color: MediumSeaGreen !important;
+}
+
+label,
+.etiqueta {
+  display: inline-block;
+  width: 110px;
+  text-align: left;
+}
+
+input {
+  width: 250px;
+  padding: 0.3em;
+}
+
+button {
+  margin: 0.5em;
+  padding: 0.5em;
+  width: 100px;
+  font-variant: small-caps;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+input,
+button:enabled,
+#firebase {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+footer {
+  margin: 2.5em 0 2em;
+}
+
+.obligatorio {
+  color: #ff2450;
+}
+
+.margenes {
+  margin: 0 1em;
+}
+
+.enlinea {
+  display: inline-block;
+}
+
+#banner {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 15px;
+  border: 1px solid gold;
+}
+
+.sr {
+  position: absolute;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+
+#zone {
+  border: none;
+  background: none;
+}
+
+.spinner {
+  margin: 0 auto;
+  border: 5px solid LightGray;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: DarkOrange;
+
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#error {
+  border: none;
+}
+
+#banner,
+#error {
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.15);
+}
+
+#firebase {
+  width: 100%;
+  max-width: 128px;
+  height: auto;
+}
+
+#alta, #datos {
+  display: none;
+}

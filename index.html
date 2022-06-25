@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns# website: http://ogp.me/ns/website#">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,104 +25,90 @@
     <link rel="canonical" href="https://javguerra.github.io/javascript-fswd/index.html" />
     <link rel="manifest" href="manifest.json" />
     <link rel="shortcut icon" href="assets/img/favicon.png" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/wysiwyg-min.css" />
+    <link rel="stylesheet" href="assets/css/firebase.css" />
     <script defer src="js/functions.js"></script>
-    <script defer src="js/script.js" type="module"></script>
+    <script defer src="js/firebase.js" type="module"></script>
 </head>
-
 <body>
-    <header>
-        <h1><img src="assets/img/logo.svg" alt="Sun logo" /> Summer&nbsp;Quiz</h1>
-    </header>
+    <div class="wysiwyg">
+        <noscript>
+            <p>
+                La página web que está viendo usa JavaScript, por lo que, para su
+                correcto funcionamiento, debe tenerlo activado en el navegador.
+            </p>
+        </noscript>
 
+    <head>
+        <img id="banner" src="assets/img/banner.png" alt="Banner" />
+        <h1 class="sr">Summer Quiz</h1>
+    </head>
     <main>
-        <div role="region" aria-live="polite" aria-label="Everything happens here ;)">
-            <section id="welcome">
-                <h2>Welcome</h2>
-
-                <p class="box">
-                    <img class="anime" src="assets/img/crabs.svg" alt="Cartoon crabs" />
-                    <br />On this page you can take a fun 10-question quiz to test your knowledge.
+        <section id="login">
+            <h2>Login</h2>
+            <form name="formLogin" action="#" method="post">
+                <p>
+                    <label for="correo">E-mail<span class="obligatorio">*</span>:</label>
+                    <input type="email" id="correo" name="correo" required="required" autofocus="autofocus" />
+                </p>
+                <p>
+                    <label for="passwd">Password<span class="obligatorio">*</span>:</label>
+                    <input type="password" id="passwd" name="passwd" required="required" />
                 </p>
 
-                <h3>~ Statistics ~</h3>
-                <div id="statistics">
-                    <div id="chart"></div>
-                    <div id="tablemeter">
-                        <div id="table"></div>
-                        <div id="tmeter">
-                            <label for="average">Average:</label>
-                            <meter id="average" min="0" low="30" optimum="50" high="70" max="100" value="0">0</meter>
-                        </div>
-                    </div>
+                <a href="#" id="lnkLogin" class="margenes">Register</a>
+                <div class="enlinea">
+                    <button id="borraLogin" type="reset" >Reset</button>
+                    <button id="envLogin" type="submit">Submit</button>
                 </div>
-                <p id="nothing">
-                    <strong>Nothing to show yet.</strong><br />
-                    Your statistics will be available with each new game.
+            </form>
+        </section>
+
+        <section id="alta">
+            <h2>User registration</h2>
+            <form name="formAlta" action="#" method="post">
+                <p>
+                    <label for="nombre">Name<span class="obligatorio">*</span>:</label>
+                    <input type="text" id="nombre" name="nombre" required="required" autofocus="autofocus" />
+                </p>
+                <p>
+                    <label for="edad">Age<span class="obligatorio">*</span>:</label>
+                    <input type="number" id="edad" name="edad" required="required" />
+                </p>
+                <p>
+                    <label for="direccion">Address<span class="obligatorio">*</span>:</label>
+                    <input type="text" id="direccion" name="direccion" required="required" />
+                </p>
+                <p>
+                    <label for="correo2">E-mail<span class="obligatorio">*</span>:</label>
+                    <input type="email" id="correo2" name="correo2" required="required" />
+                </p>
+                <p>
+                    <label for="passwd1">Password<span class="obligatorio">*</span>:</label>
+                    <input type="password" id="passwd1" name="passwd1" required="required" /><br />
+                    <label for="passwd2">& confirm<span class="obligatorio">*</span>:</label>
+                    <input type="password" id="passwd2" name="passwd2" required="required" />
                 </p>
 
-                <div><button id="play">Play</button></div>
-            </section>
+                <a href="#" id="lnkAlta" class="margenes">Login</a>
+                <div class="enlinea">
+                    <button id="borraAlta" type="reset" >Reset</button>
+                    <button id="envAlta" type="submit">Submit</button>
+                </div>
+            </form>
+        </section>
 
-            <section id="quiz">
-                <svg id="close" title="Close" role="img" aria-label="Close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                </svg>
-
-                <h2>Quiz</h2>
+        <section id="datos">
+            <h2>Welcome</h2>
+                <p><label>Name:</label><span id="datoNombre"></span></p>
+                <p><label>Age:</label><span id="datoEdad"></span></p>
+                <p><label>Adress:</label><span id="datoDirec"></span></p>
+                <p><label>E-mail:</label><span id="datoCorreo"></span></p>
                 
-                <div class="box2">
-                    <img class="anime" src="assets/img/starfish.svg" alt="Cartoon starfish" />
-                    <span id="questi"></span>
-                </div>
-
-                <div id="info">
-                    <p>Difficulty: <span id="diffic"></span></p>
-                    <p>Category: <span id="catego"></span></p>
-                </div>
-
-                <form name="quizForm" action="#" method="get">
-                    <div>
-                        <input class="hidden" type="radio" id="opt1" name="opt" value="0" />
-                        <label class="button-label" for="opt1">Option 1</label>
-                    </div>
-                    <div>
-                        <input class="hidden" type="radio" id="opt2" name="opt" value="0" />
-                        <label class="button-label" for="opt2">Option 2</label>
-                    </div>
-                    <div>
-                        <input class="hidden" type="radio" id="opt3" name="opt" value="0" />
-                        <label class="button-label" for="opt3">Option 3</label>
-                    </div>
-                    <div>
-                        <input class="hidden" type="radio" id="opt4" name="opt" value="0" />
-                        <label class="button-label" for="opt4">Option 4</label>
-                    </div>
-
-                    <div><button id="send">Send</button></div>
-                </form>
-
-                <div>
-                    <label for="numQ">Progress:</label>
-                    <progress id="numQ" max="10" value="0">0%</progress>
-                </div>
-            </section>
-
-            <section id="result">
-                <h2>Result</h2>
-                <div id="score">
-                    <div id="counter"></div>
-                    <p>Has <span id="hits">0</span> out of &nbsp;10 hits</p>
-                </div>
-
-                <p class="box3">
-                    <img class="anime" src="assets/img/fish.svg" alt="Cartoon fish" />
-                    <br />Do you want to try again?
-                </p>
-
-                <div><button id="start">Start</button></div>
-            </section>
-        </div>
+            <form name="formJugar" action="game.html" method="post">
+                <button id="envJugar" type="submit">Start</button>
+            </form>
+        </section>
     </main>
 
     <dialog id="error" role="alertdialog" aria-labelledby="title" aria-describedby="errMsg">
@@ -139,12 +124,10 @@
     </dialog>
 
     <footer>
-        <small>
-            <a target="_blank" href="https://github.com/JavGuerra/javascript-fswd">
-                <img id="github" src="assets/img/github.svg" alt="Github" /> repo
-            </a>
-        </small>
+        <a href="https://firebase.google.com/" target="_blank">
+            <img id="firebase" src="assets/img/Built_with_Firebase_Logo_Light.svg" alt="Build with Firebase" />
+        </a>
     </footer>
-</body>
 
+</body>
 </html>

@@ -295,7 +295,7 @@ footer {
   margin: 1.5em 0 2em;
 }
 
-#github {
+#github, #salir {
   width: 16px;
   height: auto;
   vertical-align: middle;
