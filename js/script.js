@@ -1,4 +1,4 @@
-import { getQuestionFireBase } from './getQuestion.js';
+import { getQuestionFireBase, db } from './getQuestion.js';
 import { logoutUser, auth, onAuthStateChanged } from './logoutUser.js';
 
 onAuthStateChanged(auth, (user) => {
@@ -167,7 +167,7 @@ function game() {
         let query = async data => {
             if (data.response_code) throw Error('API #' + data.response_code);
             questions = data.results;
-            let question = await getQuestionFireBase(); // Get one question from Firebase
+            let question = await getQuestionFireBase(db); // Get one question from Firebase
             questions.unshift(question);
             setInactiveBtn(btnPlay, false);
         };

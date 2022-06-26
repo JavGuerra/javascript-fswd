@@ -4,7 +4,7 @@ import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs
 const app = initFirebase();
 const db  = getDatabase(app);
 
-async function getQuestionFireBase() {
+async function getQuestionFireBase(db) {
     let result = null;
     setSpin(true);
 
@@ -19,4 +19,4 @@ async function getQuestionFireBase() {
     return result;   
 }
 
-export { getQuestionFireBase }
+export { getQuestionFireBase, db }
