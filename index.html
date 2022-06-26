@@ -26,15 +26,13 @@
     <link rel="canonical" href="https://javguerra.github.io/javascript-fswd/index.html" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="shortcut icon" href="./assets/img/favicon.png" />
-    <link rel="stylesheet" href="./assets/css/wysiwyg-min.css" />
     <link rel="stylesheet" href="./assets/css/firebase.css" />
+    <link rel="stylesheet" href="./assets/css/common.css" />
     <script defer src="./js/functions.js"></script>
     <script defer src="./js/firebase.js" type="module"></script>
 </head>
 
 <body>
-    <div class="wysiwyg">
-    
     <head>
         <img id="banner" src="./assets/img/banner.png" alt="Banner" />
         <h1 class="sr">Summer Quiz</h1>
@@ -53,11 +51,11 @@
                     <input type="password" id="passwd" name="passwd" required="required" />
                 </p>
 
-                <div id="btns1">
-                    <button id="delLogin" type="reset" >Reset</button>
+                <div class="btns">
+                    <button id="delLogin" type="reset">Reset</button>
                     <button id="sndLogin" type="submit">Submit</button>
                 </div>
-                <a href="#" id="lnkLogin" class="margenes">Register</a>
+                <a href="#" id="lnkLogin" class="margins">Register</a>
             </form>
         </section>
 
@@ -87,21 +85,21 @@
                     <input type="password" id="passwd2" name="passwd2" required="required" />
                 </p>
 
-                <div id="btns2">
-                    <button id="delReg" type="reset" >Reset</button>
+                <div class="btns">
+                    <button id="delReg" type="reset">Reset</button>
                     <button id="sndReg" type="submit">Submit</button>
                 </div>
-                <a href="#" id="lnkReg" class="margenes">Login</a>
+                <a href="#" id="lnkReg" class="margins">Login</a>
             </form>
         </section>
 
         <section id="data">
             <h2>Welcome</h2>
-                <p><label>Name:</label><span id="dataName"></span></p>
-                <p><label>Age:</label><span id="dataAge"></span></p>
-                <p><label>Adress:</label><span id="dataAdress"></span></p>
-                <p><label>E-mail:</label><span id="dataEmail"></span></p>
-                
+            <p><label>Name:</label><span id="dataName"></span></p>
+            <p><label>Age:</label><span id="dataAge"></span></p>
+            <p><label>Adress:</label><span id="dataAdress"></span></p>
+            <p><label>E-mail:</label><span id="dataEmail"></span></p>
+
             <form name="formPlay" action="game.html" method="get">
                 <button id="envPlay" type="submit">Start</button>
             </form>
@@ -122,11 +120,10 @@
 
     <footer>
         <a href="https://firebase.google.com/" target="_blank">
-            <img id="firebase" src="./assets/img/Built_with_Firebase_Logo_Light.svg" alt="Build with Firebase" />
+            <img id="firebase" alt="Build with Firebase"
+                src="./assets/img/Built_with_Firebase_Logo_Light.svg" />
         </a>
     </footer>
-
-    </div>
 </body>
 
 </html>
