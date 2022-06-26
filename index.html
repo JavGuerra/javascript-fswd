@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en" prefix="og: http://ogp.me/ns# website: http://ogp.me/ns/website#">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,81 +32,76 @@
 </head>
 <body>
     <div class="wysiwyg">
-        <noscript>
-            <p>
-                La página web que está viendo usa JavaScript, por lo que, para su
-                correcto funcionamiento, debe tenerlo activado en el navegador.
-            </p>
-        </noscript>
-
+    
     <head>
         <img id="banner" src="assets/img/banner.png" alt="Banner" />
         <h1 class="sr">Summer Quiz</h1>
     </head>
+
     <main>
         <section id="login">
             <h2>Login</h2>
             <form name="formLogin" action="#" method="post">
                 <p>
-                    <label for="correo">E-mail<span class="obligatorio">*</span>:</label>
-                    <input type="email" id="correo" name="correo" required="required" autofocus="autofocus" />
+                    <label for="email">E-mail<span class="mandatory">*</span>:</label>
+                    <input type="email" id="email" name="email" required="required" autofocus="autofocus" />
                 </p>
                 <p>
-                    <label for="passwd">Password<span class="obligatorio">*</span>:</label>
+                    <label for="passwd">Password<span class="mandatory">*</span>:</label>
                     <input type="password" id="passwd" name="passwd" required="required" />
                 </p>
 
-                <a href="#" id="lnkLogin" class="margenes">Register</a>
-                <div class="enlinea">
-                    <button id="borraLogin" type="reset" >Reset</button>
-                    <button id="envLogin" type="submit">Submit</button>
+                <div id="btns1">
+                    <button id="delLogin" type="reset" >Reset</button>
+                    <button id="sndLogin" type="submit">Submit</button>
                 </div>
+                <a href="#" id="lnkLogin" class="margenes">Register</a>
             </form>
         </section>
 
-        <section id="alta">
+        <section id="regtr">
             <h2>User registration</h2>
             <form name="formAlta" action="#" method="post">
                 <p>
-                    <label for="nombre">Name<span class="obligatorio">*</span>:</label>
-                    <input type="text" id="nombre" name="nombre" required="required" autofocus="autofocus" />
+                    <label for="name">Name<span class="mandatory">*</span>:</label>
+                    <input type="text" id="name" name="name" required="required" autofocus="autofocus" />
                 </p>
                 <p>
-                    <label for="edad">Age<span class="obligatorio">*</span>:</label>
-                    <input type="number" id="edad" name="edad" required="required" />
+                    <label for="age">Age<span class="mandatory">*</span>:</label>
+                    <input type="number" id="age" name="age" required="required" />
                 </p>
                 <p>
-                    <label for="direccion">Address<span class="obligatorio">*</span>:</label>
-                    <input type="text" id="direccion" name="direccion" required="required" />
+                    <label for="adress">Address<span class="mandatory">*</span>:</label>
+                    <input type="text" id="adress" name="adress" required="required" />
                 </p>
                 <p>
-                    <label for="correo2">E-mail<span class="obligatorio">*</span>:</label>
-                    <input type="email" id="correo2" name="correo2" required="required" />
+                    <label for="email2">E-mail<span class="mandatory">*</span>:</label>
+                    <input type="email" id="email2" name="email2" required="required" />
                 </p>
                 <p>
-                    <label for="passwd1">Password<span class="obligatorio">*</span>:</label>
+                    <label for="passwd1">Password<span class="mandatory">*</span>:</label>
                     <input type="password" id="passwd1" name="passwd1" required="required" /><br />
-                    <label for="passwd2">& confirm<span class="obligatorio">*</span>:</label>
+                    <label for="passwd2">& confirm<span class="mandatory">*</span>:</label>
                     <input type="password" id="passwd2" name="passwd2" required="required" />
                 </p>
 
-                <a href="#" id="lnkAlta" class="margenes">Login</a>
-                <div class="enlinea">
-                    <button id="borraAlta" type="reset" >Reset</button>
-                    <button id="envAlta" type="submit">Submit</button>
+                <div id="btns2">
+                    <button id="delReg" type="reset" >Reset</button>
+                    <button id="sndReg" type="submit">Submit</button>
                 </div>
+                <a href="#" id="lnkReg" class="margenes">Login</a>
             </form>
         </section>
 
-        <section id="datos">
+        <section id="data">
             <h2>Welcome</h2>
-                <p><label>Name:</label><span id="datoNombre"></span></p>
-                <p><label>Age:</label><span id="datoEdad"></span></p>
-                <p><label>Adress:</label><span id="datoDirec"></span></p>
-                <p><label>E-mail:</label><span id="datoCorreo"></span></p>
+                <p><label>Name:</label><span id="dataName"></span></p>
+                <p><label>Age:</label><span id="dataAge"></span></p>
+                <p><label>Adress:</label><span id="dataAdress"></span></p>
+                <p><label>E-mail:</label><span id="dataEmail"></span></p>
                 
-            <form name="formJugar" action="game.html" method="get">
-                <button id="envJugar" type="submit">Start</button>
+            <form name="formPlay" action="game.html" method="get">
+                <button id="envPlay" type="submit">Start</button>
             </form>
         </section>
     </main>

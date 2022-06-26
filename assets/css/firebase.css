@@ -19,9 +19,7 @@ h2 {
 
 label,
 .etiqueta {
-  display: inline-block;
-  width: 110px;
-  text-align: left;
+  display: block;
 }
 
 input {
@@ -52,7 +50,7 @@ footer {
   margin: 2.5em 0 2em;
 }
 
-.obligatorio {
+.mandatory {
   color: #ff2450;
 }
 
@@ -60,13 +58,9 @@ footer {
   margin: 0 1em;
 }
 
-.enlinea {
-  display: inline-block;
-}
-
 #banner {
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
   height: auto;
   border-radius: 15px;
   border: 1px solid gold;
@@ -119,6 +113,23 @@ footer {
   height: auto;
 }
 
-#alta, #datos {
+#regtr, #data {
   display: none;
+}
+
+#btns1, #btns2 {
+  margin-bottom: 1em;
+}
+
+@media (min-width: 576px) {
+  label,
+  .etiqueta {
+    display: inline-block;
+    width: 110px;
+    text-align: left;
+  }
+
+  #banner {
+    max-width: 400px;
+  }
 }
