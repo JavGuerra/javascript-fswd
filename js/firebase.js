@@ -90,7 +90,7 @@ function firebase() {
       const passwd2 = document.formAlta.passwd2.value;
 
       if (passwd !== '' && passwd2 !== '' && passwd === passwd2) {
-        if (passwd.length() >= 6) {
+        if (passwd.length >= 6) {
           createUserWithEmailAndPassword(auth, email, passwd)
           .then(response => {
             console.log('User successfully created.');
