@@ -59,8 +59,7 @@ function firebase() {
           console.log('User successfully authenticated.');
           const userId = response.user.uid;
 
-          // TODO Mostrar datos
-          // getUserData(db, userId);
+          getUserData(db, userId);
           
           showEl(el('#login'), false);
           showEl(el('#data' ), true );
@@ -102,8 +101,7 @@ function firebase() {
             email: email
             };
 
-            // TODO subir datos
-            // setUserData(db, userId, data);
+            setUserData(db, userId, data);
 
             switchMode();
           })

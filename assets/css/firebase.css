@@ -67,8 +67,15 @@ button:disabled:hover {
 }
 
 label,
-.etiqueta {
+.data {
   display: block;
+}
+
+.data {
+  margin: 0.25em auto 0;
+  padding: 0.5em;
+  background-color: white;
+  max-width: 250px;
 }
 
 input {
@@ -80,7 +87,8 @@ input {
 
 input,
 button:enabled,
-#firebase {
+#firebase,
+.data {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
@@ -122,10 +130,17 @@ footer {
 
 @media (min-width: 576px) {
   label,
-  .etiqueta {
+  .data {
     display: inline-block;
-    width: 110px;
     text-align: left;
+  }
+
+  label {
+    width: 100px;
+  }
+
+  .data {
+    width: 250px;
   }
 
   #banner {

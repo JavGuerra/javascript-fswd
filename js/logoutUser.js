@@ -7,7 +7,7 @@ const auth = getAuth(app);
 
 function logoutUser(e, auth) {
   e.preventDefault();
-  console.log (typeof auth);
+
   signOut(auth)
     .then(() => {
       console.log('User logged out successfully.');
