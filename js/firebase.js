@@ -1,5 +1,5 @@
 import { initFirebase } from './initFirebase.js'; 
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut }
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged }
   from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js';
 import { getDatabase, ref, get, set, child }
   from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js';
@@ -36,7 +36,7 @@ function firebase() {
   el('#sndReg'  ).onclick = (e) => signUpUser(e, auth, db);
   el('#lnkLogin').onclick = switchMode;
   el('#lnkReg'  ).onclick = switchMode;
-  
+
 
   function switchMode() {
     mode = !mode;
@@ -46,8 +46,8 @@ function firebase() {
 
 
   function loginUser(e, auth, db) {
+    e.preventDefault();
     if (document.formLogin.checkValidity()) {
-      e.preventDefault();
       setInactiveBtn(el('#sndLogin'), true);
       setSpin(true);
 
@@ -78,8 +78,8 @@ function firebase() {
 
 
   function signUpUser(e, auth, db) {
+    e.preventDefault();
     if (document.formAlta.checkValidity()) {
-      e.preventDefault();
       setInactiveBtn(el('#sndReg'), true);
       setSpin(true);
 
