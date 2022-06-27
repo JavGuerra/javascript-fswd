@@ -36,6 +36,7 @@ function firebase() {
   el('#sndReg'  ).onclick = (e) => signUpUser(e, auth, db);
   el('#lnkLogin').onclick = switchMode;
   el('#lnkReg'  ).onclick = switchMode;
+  
 
   function switchMode() {
     mode = !mode;
@@ -67,10 +68,11 @@ function firebase() {
         .catch(err => {
           openDialog('User not available.');
           console.log(err);
+        })
+        .finally(() => {
+          setSpin(false);
+          setInactiveBtn(el('#sndLogin'), false);
         });
-
-      setSpin(false);
-      setInactiveBtn(el('#sndLogin'), false);
     }
   }
 
@@ -91,35 +93,40 @@ function firebase() {
       if (passwd !== '' && passwd2 !== '' && passwd === passwd2) {
         if (passwd.length >= 6) {
           createUserWithEmailAndPassword(auth, email, passwd)
-          .then(response => {
-            console.log('User successfully created.');
-            const userId = response.user.uid;
-            const data = {
-            name: name,
-            age: age,
-            adress: adress,
-            email: email
-            };
+            .then(response => {
+              console.log('User successfully created.');
+              const userId = response.user.uid;
+              const data = {
+              name: name,
+              age: age,
+              adress: adress,
+              email: email
+              };
 
-            setUserData(db, userId, data);
+              setUserData(db, userId, data);
 
-            switchMode();
-          })
-          .catch(err => {
-            openDialog('It was not possible to register the user.');
-            console.log(err);
-          });
+              switchMode();
+            })
+            .catch(err => {
+              openDialog('It was not possible to register the user.');
+              console.log(err);
+            })
+            .finally(() => {
+              setSpin(false);
+              setInactiveBtn(el('#sndLogin'), false);
+            });
         } else {
           msg = 'The password must be at least 6 characters long.';
           openDialog(msg); console.log(msg);
+          setSpin(false);
+          setInactiveBtn(el('#sndReg'), false);
         }
       } else {
         msg = 'Passwords do not match.';
         openDialog(msg); console.log(msg);
+        setSpin(false);
+        setInactiveBtn(el('#sndReg'), false);
       }
-
-      setSpin(false);
-      setInactiveBtn(el('#sndLogin'), false);
     }
   }
 
@@ -143,24 +150,21 @@ function firebase() {
       .catch(err => {
         openDialog('It has not been possible to obtain user data.');
         console.log(err);
-      });
-
-    setSpin(false);
+      })
+      .finally(setSpin(false));
   }
 
 
   function setUserData(db, userId, data) {
     setSpin(true);
 
-    try {
-      set(ref(db, `users/${userId}`), data);
-    }
-    catch (err) {
+    set(ref(db, `users/${userId}`), data)
+    .then(console.log('User data added.'))
+    .catch(err => {
       openDialog('It has not been possible to add user data.');
       console.log(err);
-    };
-
-    setSpin(false);
+    })
+    .finally(setSpin(false));
   }
 
 }
