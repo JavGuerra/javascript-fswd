@@ -22,8 +22,8 @@ function firebase() {
   let msg = '';
   let mode = true;
 
-  el('#sndLogin').onclick = (e) => loginUser(e, auth, db);
-  el('#sndReg'  ).onclick = (e) => signUpUser(e, auth, db);
+  el('#sndLogin').onclick = (event) => loginUser(event, auth, db);
+  el('#sndReg'  ).onclick = (event) => signUpUser(event, auth, db);
   el('#lnkLogin').onclick = switchMode;
   el('#lnkReg'  ).onclick = switchMode;
 

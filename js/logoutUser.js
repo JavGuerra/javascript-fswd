@@ -5,8 +5,8 @@ import { getAuth, signOut, onAuthStateChanged }
 const app  = initFirebase();
 const auth = getAuth(app);
 
-function logoutUser(e, auth) {
-  e.preventDefault();
+function logoutUser(event, auth) {
+  event.preventDefault();
 
   signOut(auth)
     .then(() => {
