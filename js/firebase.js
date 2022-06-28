@@ -18,14 +18,7 @@ onAuthStateChanged(auth, (user) => {
 function firebase() {
 
   play = false;
-
-  const elDialog  = el('#error'  );
-  const elErrMsg  = el('#errMsg' );
-  const btnOK     = el('#ok'     );
-  const elZone    = el('#zone'   );
-
-  let spins = 0;
-  let areSpins = 0;
+  
   let msg = '';
   let mode = true;
 
