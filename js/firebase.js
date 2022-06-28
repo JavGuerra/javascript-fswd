@@ -27,10 +27,7 @@ function firebase() {
   let spins = 0;
   let areSpins = 0;
   let msg = '';
-
-  let mode = false;
-  showEl(el('#data'), false);
-  switchMode();
+  let mode = true;
 
   el('#sndLogin').onclick = (e) => loginUser(e, auth, db);
   el('#sndReg'  ).onclick = (e) => signUpUser(e, auth, db);
