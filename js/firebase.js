@@ -35,8 +35,8 @@ function firebase() {
   }
 
 
-  function loginUser(e, auth, db) {
-    e.preventDefault();
+  function loginUser(event, auth, db) {
+    event.preventDefault();
     if (document.formLogin.checkValidity()) {
       setInactiveBtn(el('#sndLogin'), true);
       setSpin(true);
@@ -67,8 +67,8 @@ function firebase() {
   }
 
 
-  function signUpUser(e, auth, db) {
-    e.preventDefault();
+  function signUpUser(event, auth, db) {
+    event.preventDefault();
     if (document.formAlta.checkValidity()) {
       setInactiveBtn(el('#sndReg'), true);
       setSpin(true);
