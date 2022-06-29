@@ -46,7 +46,6 @@ function firebase() {
       
       signInWithEmailAndPassword(auth, email, passwd)
         .then(response => {
-
           console.log('User successfully authenticated.');
           const userId = response.user.uid;
 
