@@ -105,7 +105,7 @@ function firebase() {
             })
             .finally(() => {
               setSpin(false);
-              setInactiveBtn(el('#sndLogin'), false);
+              setInactiveBtn(el('#sndReg'), false);
             });
         } else {
           msg = 'The password must be at least 6 characters long.';
