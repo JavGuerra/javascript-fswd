@@ -63,6 +63,8 @@ function firebase() {
           setSpin(false);
           setInactiveBtn(el('#sndLogin'), false);
         });
+    } else {
+      openDialog('Form incomplete.');
     }
   }
 
@@ -117,6 +119,8 @@ function firebase() {
         setSpin(false);
         setInactiveBtn(el('#sndReg'), false);
       }
+    } else {
+      openDialog('Form incomplete.');
     }
   }
 
